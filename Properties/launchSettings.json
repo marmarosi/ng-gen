@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ng-gen": {
+      "commandName": "Project",
+      "commandLineArgs": "m soft-drinks -o ..\\\\..\\\\..\\\\"
+    }
+  }
+}

@@ -1,0 +1,674 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Actions" xml:space="preserve">
+    <value>/* 3rd party libraries */
+
+/* globally accessible app code in every feature module */
+
+/* locally accessible feature module code, always use relative path */
+
+export const enum #PascalSingle#Action {
+  view
+}</value>
+  </data>
+  <data name="ApiCode" xml:space="preserve">
+    <value>/* 3rd party libraries */
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+
+/* globally accessible app code in every feature module */
+import { HttpServiceBase } from 'www/shared';
+import { environment } from 'www/environments';
+
+/* locally accessible feature module code, always use relative path */
+// import { #PascalSingle#Dto, #PascalSingle#ListItemDto, #PascalSingle#ViewDto } from './interfaces';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class #PascalSingle#Api extends HttpServiceBase {
+
+  constructor(private http: HttpClient) {
+    super(environment.apiUrl, '/api/#dash-single#');
+  }
+
+  // get#PascalSingle#s(): Observable&lt;Array&lt;#PascalSingle#ListItemDto&gt;&gt; {
+  //
+  //   return this.http.get&lt;Array&lt;#PascalSingle#ListItemDto&gt;&gt;(
+  //     `${this.baseUrl}`
+  //   );
+  // }
+  //
+  // get#PascalSingle#View(
+  //   #camelSingle#Key: number
+  // ): Observable&lt;#PascalSingle#ViewDto&gt; {
+  //
+  //   return this.http.get&lt;#PascalSingle#ViewDto&gt;(
+  //     `${this.baseUrl}/${#camelSingle#Key}/view`
+  //   );
+  // }
+  //
+  // get#PascalSingle#(
+  //   #camelSingle#Key: number
+  // ): Observable&lt;#PascalSingle#Dto&gt; {
+  //
+  //   return this.http.get&lt;#PascalSingle#Dto&gt;(
+  //     `${this.baseUrl}/${#camelSingle#Key}`
+  //   );
+  // }
+  //
+  // create#PascalSingle#(
+  //   #camelSingle#: #PascalSingle#Dto
+  // ): Observable&lt;#PascalSingle#Dto&gt; {
+  //
+  //   return this.http.post&lt;#PascalSingle#Dto&gt;(
+  //     `${this.baseUrl}`,
+  //     #camelSingle#
+  //   );
+  // }
+  //
+  // update#PascalSingle#(
+  //   #camelSingle#: #PascalSingle#Dto
+  // ): Observable&lt;#PascalSingle#Dto&gt; {
+  //
+  //   return this.http.put&lt;#PascalSingle#Dto&gt;(
+  //     `${this.baseUrl}`,
+  //     #camelSingle#
+  //   );
+  // }
+  //
+  // remove#PascalSingle#(
+  //   #camelSingle#Key: number
+  // ): Observable&lt;void&gt; {
+  //
+  //   return this.http.delete&lt;void&gt;(
+  //     `${this.baseUrl}/${#camelSingle#Key}`
+  //   );
+  // }
+}</value>
+  </data>
+  <data name="ApiTest" xml:space="preserve">
+    <value>import { TestBed } from '@angular/core/testing';
+
+import { #PascalSingle#Api } from './#dash-single#.api';
+
+describe('#PascalSingle#Api', () =&gt; {
+  let api: #PascalSingle#Api;
+
+  beforeEach(() =&gt; {
+    TestBed.configureTestingModule({});
+    api = TestBed.inject(#PascalSingle#Api);
+  });
+
+  it('should be created', () =&gt; {
+    expect(api).toBeTruthy();
+  });
+});</value>
+  </data>
+  <data name="ComponentCode" xml:space="preserve">
+    <value>/* 3rd party libraries */
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+
+/* globally accessible app code in every feature module */
+
+/* locally accessible feature module code, always use relative path */
+
+@Component({
+  selector: '#prefix#-#dash-single#',
+  templateUrl: './#dash-single#.#dash-type#.html',
+  styleUrl: './#dash-single#.#dash-type#.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class #PascalSingle##PascalType# {
+
+}</value>
+  </data>
+  <data name="ComponentIndex" xml:space="preserve">
+    <value>import { #PascalSingle#Component } from './#dash-single#/#dash-single#.component';
+
+export const components = [
+  #PascalSingle#Component
+];
+
+export { #PascalSingle#Component } from './#dash-single#/#dash-single#.component';</value>
+  </data>
+  <data name="ComponentTest" xml:space="preserve">
+    <value>/* 3rd party libraries */
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+/* globally accessible app code in every feature module */
+
+/* locally accessible feature module code, always use relative path */
+import { #PascalSingle##PascalType# } from './#dash-single#.#dash-type#';
+
+describe('#PascalSingle##PascalType#', () =&gt; {
+  let #camelType#: #PascalSingle##PascalType#;
+  let fixture: #PascalType#Fixture&lt;#PascalSingle##PascalType#&gt;;
+
+  beforeEach(async () =&gt; {
+    await TestBed.configureTestingModule({
+      declarations: [#PascalSingle##PascalType#]
+    })
+    .compile#PascalType#s();
+    
+    fixture = TestBed.create#PascalType#(#PascalSingle##PascalType#);
+    #camelType# = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () =&gt; {
+    expect(#camelType#).toBeTruthy();
+  });
+});</value>
+  </data>
+  <data name="ComponentView" xml:space="preserve">
+    <value>&lt;p&gt;#dash-single# component works!&lt;/p&gt;</value>
+  </data>
+  <data name="DialogCode" xml:space="preserve">
+    <value>/* 3rd party libraries */
+import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Observable } from 'rxjs';
+
+/* globally accessible app code in every feature module */
+
+/* locally accessible feature module code, always use relative path */
+import { #PascalSingle#Data } from '../../models';
+
+@Component({
+  templateUrl: './#dash-single#.dialog.html',
+  styleUrl: './#dash-single#.dialog.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class #PascalSingle#Dialog {
+
+  constructor(
+    @Inject( MAT_DIALOG_DATA ) public readonly data: Observable&lt;#PascalSingle#Data&gt;
+  ) { }
+}</value>
+  </data>
+  <data name="DialogData" xml:space="preserve">
+    <value>/* 3rd party libraries */
+
+/* globally accessible app code in every feature module */
+
+/* locally accessible feature module code, always use relative path */
+
+export interface #PascalSingle#Data {
+
+  name: string;
+}</value>
+  </data>
+  <data name="DialogIndex" xml:space="preserve">
+    <value>import { #PascalSingle#Dialog } from './#dash-single#/#dash-single#.dialog';
+
+export const dialogs = [
+  #PascalSingle#Dialog
+];
+
+export { #PascalSingle#Dialog } from './#dash-single#/#dash-single#.dialog';</value>
+  </data>
+  <data name="DialogTest" xml:space="preserve">
+    <value>/* 3rd party libraries */
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+/* globally accessible app code in every feature module */
+
+/* locally accessible feature module code, always use relative path */
+import { #PascalSingle#Dialog } from './#dash-single#.dialog';
+
+describe('#PascalSingle#Dialog', () =&gt; {
+  let component: #PascalSingle#Dialog;
+  let fixture: ComponentFixture&lt;#PascalSingle#Dialog&gt;;
+
+  beforeEach(async () =&gt; {
+    await TestBed.configureTestingModule({
+      declarations: [ #PascalSingle#Dialog ]
+    })
+    .compileComponents();
+  });
+
+  beforeEach(() =&gt; {
+    fixture = TestBed.createComponent(#PascalSingle#Dialog);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () =&gt; {
+    expect(component).toBeTruthy();
+  });
+});</value>
+  </data>
+  <data name="DialogView" xml:space="preserve">
+    <value>&lt;h2 mat-dialog-title&gt;Delete all elements?&lt;/h2&gt;
+&lt;mat-dialog-content&gt;
+  This will delete all elements that are currently on this page and cannot be undone.
+&lt;/mat-dialog-content&gt;
+&lt;mat-dialog-actions&gt;
+  &lt;button mat-button mat-dialog-close&gt;Cancel&lt;/button&gt;
+  &lt;button mat-button [mat-dialog-close]="true"&gt;Delete&lt;/button&gt;
+&lt;/mat-dialog-actions&gt;</value>
+  </data>
+  <data name="InterfacesIndex" xml:space="preserve">
+    <value>export { #PascalSingle#Dto } from './#dash-single#.dto';
+export { #PascalSingle#ListItemDto } from './#dash-single#-list-item.dto';
+export { #PascalSingle#ViewDto } from './#dash-single#-view.dto';</value>
+  </data>
+  <data name="Model" xml:space="preserve">
+    <value>/* 3rd party libraries */
+import { required, maxLength, prop } from '@rxweb/reactive-form-validators';
+
+/* globally accessible app code in every feature module */
+
+/* locally accessible feature module code, always use relative path */
+
+const msgRoot = '#camelPlural#.#camelSingle#.';
+
+export class #PascalSingle# {
+
+  public modelId?: string;
+
+  @required( { message: msgRoot + 'name.required' } )
+  @maxLength( { value: 100, message: msgRoot + 'name.maxLength' } )
+  public name: string;
+
+  public timestamp?: Date;
+
+  constructor( data ) {
+    Object.assign( this, data );
+  }
+}</value>
+  </data>
+  <data name="ModelDto" xml:space="preserve">
+    <value>/* 3rd party libraries */
+
+/* globally accessible app code in every feature module */
+
+/* locally accessible feature module code, always use relative path */
+
+export interface #PascalSingle#Dto {
+
+    name: string;
+}
+
+export namespace #PascalSingle#Dto {
+
+  export function create(): #PascalSingle#Dto {
+    return {
+      name: ''
+    };
+  }
+}</value>
+  </data>
+  <data name="ModelIndex" xml:space="preserve">
+    <value>export * from './actions';
+export { DialogData } from './dialog.data';
+export { #PascalSingle# } from './#dash-single#';</value>
+  </data>
+  <data name="ModelListItemDto" xml:space="preserve">
+    <value>/* 3rd party libraries */
+
+/* globally accessible app code in every feature module */
+
+/* locally accessible feature module code, always use relative path */
+
+export interface #PascalSingle#ListItemDto {
+
+    name: string;
+}
+
+export namespace #PascalSingle#ListItemDto {
+
+  export function create(): #PascalSingle#ListItemDto {
+    return {
+      name: ''
+    };
+  }
+}</value>
+  </data>
+  <data name="ModelViewDto" xml:space="preserve">
+    <value>/* 3rd party libraries */
+
+/* globally accessible app code in every feature module */
+
+/* locally accessible feature module code, always use relative path */
+
+export interface #PascalSingle#ViewDto {
+
+    name: string;
+}
+
+export namespace #PascalSingle#ViewDto {
+
+  export function create(): #PascalSingle#ViewDto {
+    return {
+      name: ''
+    };
+  }
+}</value>
+  </data>
+  <data name="Module" xml:space="preserve">
+    <value>/* 3rd party libraries */
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+
+/* globally accessible app code in every feature module */
+import { SharedModule } from 'www/shared';
+
+/* locally accessible feature module code, always use relative path */
+import { routes } from './#dash-plural#.routes';
+import { components } from './components';
+import { dialogs } from './dialogs';
+import { pages } from './pages';
+
+@NgModule( {
+  imports: [
+    SharedModule,
+    RouterModule.forChild( routes )
+  ],
+  declarations: [
+    ...components,
+    ...dialogs,
+    ...pages
+  ]
+} )
+export class #PascalPlural#Module { }</value>
+  </data>
+  <data name="NavigatorCode" xml:space="preserve">
+    <value>/* 3rd party libraries */
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+
+/* globally accessible app code in every feature module */
+
+/* locally accessible feature module code, always use relative path */
+
+@Injectable( {
+  providedIn: 'root'
+} )
+export class #PascalSingle#Navigator {
+
+  #root = '/#dash-single#';
+
+  constructor(
+    protected readonly router: Router
+  ) { }
+
+  // list(): void {
+  //   this.router.navigate( [ this.#root ] );
+  // }
+  //
+  // view(
+  //   key: number
+  // ): void {
+  //   this.router.navigate( [ this.#root, key ] );
+  // }
+  //
+  // edit(
+  //   key: number
+  // ): void {
+  //   this.router.navigate( [ this.#root, key, 'edit' ] );
+  // }
+}</value>
+  </data>
+  <data name="NavigatorTest" xml:space="preserve">
+    <value>import { TestBed } from '@angular/core/testing';
+
+import { #PascalSingle#Navigator } from './#dash-single#.navigator';
+
+describe('#PascalSingle#Navigator', () =&gt; {
+  let #camelSingle#: #PascalSingle#Navigator;
+
+  beforeEach(() =&gt; {
+    TestBed.configureTestingModule({});
+    #camelSingle# = TestBed.inject(#PascalSingle#Navigator);
+  });
+
+  it('should be created', () =&gt; {
+    expect(#camelSingle#).toBeTruthy();
+  });
+});</value>
+  </data>
+  <data name="PageCode" xml:space="preserve">
+    <value>/* 3rd party libraries */
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+
+/* globally accessible app code in every feature module */
+
+/* locally accessible feature module code, always use relative path */
+
+@Component({
+  templateUrl: './#dash-single#.page.html',
+  styleUrl: './#dash-single#.page.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class #PascalSingle#Page {
+
+}</value>
+  </data>
+  <data name="PageIndex" xml:space="preserve">
+    <value>import { #PascalSingle#Page } from './#dash-single#/#dash-single#.page';
+
+export const pages = [
+  #PascalSingle#Page
+];
+
+export { #PascalSingle#Page } from './#dash-single#/#dash-single#.page';</value>
+  </data>
+  <data name="PageTest" xml:space="preserve">
+    <value>/* 3rd party libraries */
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+/* globally accessible app code in every feature module */
+
+/* locally accessible feature module code, always use relative path */
+import { #PascalSingle#Page } from './#dash-single#.page';
+
+describe('#PascalSingle#Page', () =&gt; {
+  let component: #PascalSingle#Page;
+  let fixture: ComponentFixture&lt;#PascalSingle#Page&gt;;
+
+  beforeEach(async () =&gt; {
+    await TestBed.configureTestingModule({
+      declarations: [#PascalSingle#Page]
+    })
+    .compileComponents();
+    
+    fixture = TestBed.createComponent(#PascalSingle#Page);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () =&gt; {
+    expect(component).toBeTruthy();
+  });
+});</value>
+  </data>
+  <data name="PageView" xml:space="preserve">
+    <value>&lt;p&gt;#dash-single# page works!&lt;/p&gt;</value>
+  </data>
+  <data name="Routes" xml:space="preserve">
+    <value>/* 3rd party libraries */
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+
+/* globally accessible app code in every feature module */
+
+/* locally accessible feature module code, always use relative path */
+import * as pages from './pages';
+
+export const routes: Routes = [
+  // {
+  //   path: '',
+  //   component: pages.ListPage
+  // }, {
+  //   path: ':key',
+  //   component: pages.ViewPage
+  // }, {
+  //   path: ':key/edit',
+  //   component: pages.EditPage
+  // }
+];</value>
+  </data>
+  <data name="ServiceCode" xml:space="preserve">
+    <value>/* 3rd party libraries */
+import { Injectable } from '@angular/core';
+
+/* globally accessible app code in every feature module */
+
+/* locally accessible feature module code, always use relative path */
+
+@Injectable({
+  providedIn: 'root'
+})
+export class #PascalSingle##PascalType# {
+
+  constructor() { }
+}</value>
+  </data>
+  <data name="ServiceIndex" xml:space="preserve">
+    <value>export * from './interfaces';
+export { #PascalSingle#Api } from './#dash-single#.api';
+export { #PascalSingle#Navigator } from './#dash-single#.navigator';</value>
+  </data>
+  <data name="ServiceTest" xml:space="preserve">
+    <value>/* 3rd party libraries */
+import { TestBed } from '@angular/core/testing';
+
+/* globally accessible app code in every feature module */
+
+/* locally accessible feature module code, always use relative path */
+import { #PascalSingle##PascalType# } from './#dash-single#.#dash-type#';
+
+describe('#PascalSingle##PascalType#', () =&gt; {
+  let #camelType#: #PascalSingle##PascalType#;
+
+  beforeEach(() =&gt; {
+    TestBed.configureTestingModule({});
+    #camelType# = TestBed.inject(#PascalSingle##PascalType#);
+  });
+
+  it('should be created', () =&gt; {
+    expect(#camelType#).toBeTruthy();
+  });
+});</value>
+  </data>
+</root>
