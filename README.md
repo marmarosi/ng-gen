@@ -8,8 +8,8 @@ Usage:
 Options:
 ```
 -o, --output-dir <output-dir>  The path of the directory where the files will be generated.
--x, --prefix <prefix>          The HTML prefix of the Angular element. [default: app]
--t, --type <type>              The file type of the Angular element.
+-x, --prefix <prefix>          The HTML prefix of the Angular component. [default: app]
+-t, --type <type>              The type of the Angular component/service.
 --version                      Show version information
 -?, -h, --help                 Show help and usage information
 ```

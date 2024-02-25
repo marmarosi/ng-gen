@@ -16,13 +16,13 @@ static class Program
 
         var prefixOption = new Option<string>(
             name: "--prefix",
-            description: "The HTML prefix of the Angular element.",
+            description: "The HTML prefix of the Angular component.",
             getDefaultValue: () => "app");
         prefixOption.AddAlias("-x");
 
         var typeOption = new Option<string>(
             name: "--type",
-            description: "The file type of the Angular element.");
+            description: "The type of the Angular component/service.");
         typeOption.AddAlias("-t");
 
         // Define arguments
