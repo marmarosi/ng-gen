@@ -1,12 +1,23 @@
-using ng_gen;
 using System.CommandLine;
+using Microsoft.Extensions.Configuration;
 
-namespace scl;
+namespace ng_gen;
 
 static class Program
 {
+    internal static string? OutputDirectory { get; set; }
+    internal static string? TemplatePath { get; set; }
+
     static async Task<int> Main(string[] args)
     {
+        var builder = new ConfigurationBuilder();
+        builder.SetBasePath(Directory.GetCurrentDirectory())
+           .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+
+        IConfiguration config = builder.Build();
+        OutputDirectory = config["OutputDirectory"];
+        TemplatePath = config["TemplatePath"];
+
         // Define options
 
         var dirPathOption = new Option<string>(

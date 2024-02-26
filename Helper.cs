@@ -1,20 +1,44 @@
+using System.Runtime;
 using System.Text.RegularExpressions;
 
 namespace ng_gen
 {
     internal static class Helper
     {
+        //internal static IConfiguration Configuration { get; set }
+
         internal static string GetOutputPath(
             string dirPath,
             string name
             )
         {
-            string outputPath = System.Reflection.Assembly.GetExecutingAssembly().Location;
-            outputPath = Path.GetDirectoryName(outputPath);
+            string outputPath;
+            DirectoryInfo dirInfo;
+
+            string currentDir = Path.GetDirectoryName(
+                System.Reflection.Assembly.GetExecutingAssembly().Location
+                );
+            if (!string.IsNullOrWhiteSpace(Program.OutputDirectory))
+            {
+                outputPath = Program.OutputDirectory.Trim();
+                if (outputPath.StartsWith('.'))
+                {
+                    outputPath = Path.Combine(currentDir!, outputPath);
+                }
+                if (Directory.Exists(outputPath))
+                {
+                    dirInfo = new DirectoryInfo(outputPath);
+                    outputPath = dirInfo.FullName;
+                }
+                else
+                    throw new DirectoryNotFoundException($"Directory not found: {outputPath}");
+            }
+            else
+                outputPath = currentDir;
+
             if (!string.IsNullOrWhiteSpace(dirPath))
             {
                 outputPath = Path.Combine(outputPath!, dirPath);
-                DirectoryInfo dirInfo;
                 if (!Directory.Exists(outputPath))
                     dirInfo = Directory.CreateDirectory(outputPath);
                 else
