@@ -353,7 +353,7 @@ namespace ng_gen {
         /// <summary>
         ///   Looks up a localized string similar to export * from &apos;./actions&apos;;
         ///export { DialogData } from &apos;./dialog.data&apos;;
-        ///export { #PascalSingle# } from &apos;./#dash-single#&apos;;.
+        ///export { #PascalSingle# } from &apos;./#dash-single#.model&apos;;.
         /// </summary>
         internal static string ModelIndex {
             get {

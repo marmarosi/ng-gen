@@ -421,7 +421,7 @@ export namespace #PascalSingle#Dto {
   <data name="ModelIndex" xml:space="preserve">
     <value>export * from './actions';
 export { DialogData } from './dialog.data';
-export { #PascalSingle# } from './#dash-single#';</value>
+export { #PascalSingle# } from './#dash-single#.model';</value>
   </data>
   <data name="ModelListItemDto" xml:space="preserve">
     <value>/* 3rd party libraries */

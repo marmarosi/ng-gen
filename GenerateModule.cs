@@ -89,14 +89,14 @@ namespace ng_gen
             await Helper.WriteFile(filePath, content);
             Console.WriteLine($"{dashPlural}/models/{dashSingle}.data.ts");
 
-            // models/dashSingle.ts
-            filePath = Path.Combine(outputPath, $"models/{dashSingle}.ts");
+            // models/dashSingle.model.ts
+            filePath = Path.Combine(outputPath, $"models/{dashSingle}.model.ts");
             content = Files.Model
                 .Replace("#camelPlural#", camelPlural)
                 .Replace("#camelSingle#", camelSingle)
                 .Replace("#PascalSingle#", pascalSingle);
             await Helper.WriteFile(filePath, content);
-            Console.WriteLine($"{dashPlural}/models/{dashSingle}.ts");
+            Console.WriteLine($"{dashPlural}/models/{dashSingle}.model.ts");
 
             // pages/index.ts
             filePath = Path.Combine(outputPath, $"pages/index.ts");
@@ -134,26 +134,26 @@ namespace ng_gen
             await Helper.WriteFile(filePath, content);
             Console.WriteLine($"{dashPlural}/services/interfaces/index.ts");
 
-            // services/interfaces/dashSingle.ts
-            filePath = Path.Combine(outputPath, $"services/interfaces/{dashSingle}.ts");
+            // services/interfaces/dashSingle.dto.ts
+            filePath = Path.Combine(outputPath, $"services/interfaces/{dashSingle}.dto.ts");
             content = Files.ModelDto
                 .Replace("#PascalSingle#", pascalSingle);
             await Helper.WriteFile(filePath, content);
-            Console.WriteLine($"{dashPlural}/services/interfaces/{dashSingle}.ts");
+            Console.WriteLine($"{dashPlural}/services/interfaces/{dashSingle}.dto.ts");
 
-            // services/interfaces/dashSingle-list-item.ts
-            filePath = Path.Combine(outputPath, $"services/interfaces/{dashSingle}-list-item.ts");
+            // services/interfaces/dashSingle-list-item.dto.ts
+            filePath = Path.Combine(outputPath, $"services/interfaces/{dashSingle}-list-item.dto.ts");
             content = Files.ModelListItemDto
                 .Replace("#PascalSingle#", pascalSingle);
             await Helper.WriteFile(filePath, content);
-            Console.WriteLine($"{dashPlural}/services/interfaces/{dashSingle}-list-item.ts");
+            Console.WriteLine($"{dashPlural}/services/interfaces/{dashSingle}-list-item.dto.ts");
 
-            // services/interfaces/dashSingle-view.ts
-            filePath = Path.Combine(outputPath, $"services/interfaces/{dashSingle}-view.ts");
+            // services/interfaces/dashSingle-view.dto.ts
+            filePath = Path.Combine(outputPath, $"services/interfaces/{dashSingle}-view.dto.ts");
             content = Files.ModelViewDto
                 .Replace("#PascalSingle#", pascalSingle);
             await Helper.WriteFile(filePath, content);
-            Console.WriteLine($"{dashPlural}/services/interfaces/{dashSingle}-view.ts");
+            Console.WriteLine($"{dashPlural}/services/interfaces/{dashSingle}-view.dto.ts");
         }
     }
 }
