@@ -127,8 +127,8 @@ static class Program
         string configName
         )
     {
-        if (hasConfig)
-            return;
+        if (hasConfig) return;
+
         var settingsName = string.IsNullOrWhiteSpace(configName) ? "appsettings" : configName;
         var builder = new ConfigurationBuilder();
         builder.SetBasePath(Directory.GetCurrentDirectory())

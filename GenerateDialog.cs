@@ -34,7 +34,7 @@ namespace ng_gen
 
             // dashSingle/dashSingle.dialog.ts
             filePath = Path.Combine(outputPath, $"{dashSingle}.dialog.ts");
-            content = Files.DialogCode
+            content = (await Templates.GetDialogCode())
                 .Replace("#dash-single#", dashSingle)
                 .Replace("#PascalSingle#", pascalSingle);
             await Helper.WriteFile(filePath, content);
@@ -42,7 +42,7 @@ namespace ng_gen
 
             // dashSingle/dashSingle.dialog.spec.ts
             filePath = Path.Combine(outputPath, $"{dashSingle}.dialog.spec.ts");
-            content = Files.DialogTest
+            content = (await Templates.GetDialogTest())
                 .Replace("#dash-single#", dashSingle)
                 .Replace("#PascalSingle#", pascalSingle);
             await Helper.WriteFile(filePath, content);
@@ -56,7 +56,7 @@ namespace ng_gen
 
             // dashSingle/dashSingle.v.html
             filePath = Path.Combine(outputPath, $"{dashSingle}.dialog.html");
-            content = Files.DialogView
+            content = (await Templates.GetDialogView())
                 .Replace("#dash-single#", dashSingle);
             await Helper.WriteFile(filePath, content);
             Console.WriteLine($"{displayPath}/{dashSingle}.dialog.html");

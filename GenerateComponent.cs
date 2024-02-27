@@ -41,7 +41,7 @@ namespace ng_gen
 
             // dashSingle/dashSingle.{type}.ts
             filePath = Path.Combine(outputPath, $"{dashSingle}.{type}.ts");
-            content = Files.ComponentCode
+            content = (await Templates.GetComponentCode())
                 .Replace("#dash-single#", dashSingle)
                 .Replace("#PascalSingle#", pascalSingle)
                 .Replace("#dash-type#", dashType)
@@ -52,7 +52,7 @@ namespace ng_gen
 
             // dashSingle/dashSingle.{type}.spec.ts
             filePath = Path.Combine(outputPath, $"{dashSingle}.{type}.spec.ts");
-            content = Files.ComponentTest
+            content = (await Templates.GetComponentTest())
                 .Replace("#dash-single#", dashSingle)
                 .Replace("#PascalSingle#", pascalSingle)
                 .Replace("#dash-type#", dashType)
@@ -69,7 +69,7 @@ namespace ng_gen
 
             // dashSingle/dashSingle.{type}.html
             filePath = Path.Combine(outputPath, $"{dashSingle}.{type}.html");
-            content = Files.ComponentView
+            content = (await Templates.GetComponentView())
                 .Replace("#dash-single#", dashSingle);
             await Helper.WriteFile(filePath, content);
             Console.WriteLine($"{displayPath}/{dashSingle}.{type}.html");

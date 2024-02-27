@@ -2,7 +2,7 @@
   "profiles": {
     "ng-gen": {
       "commandName": "Project",
-      "commandLineArgs": "m templates -c mj-settings"
+      "commandLineArgs": "m rolling-stones -c mj-settings"
     }
   }
 }

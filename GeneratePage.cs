@@ -34,7 +34,7 @@ namespace ng_gen
 
             // dashSingle/dashSingle.page.ts
             filePath = Path.Combine(outputPath, $"{dashSingle}.page.ts");
-            content = Files.PageCode
+            content = (await Templates.GetPageCode())
                 .Replace("#dash-single#", dashSingle)
                 .Replace("#PascalSingle#", pascalSingle);
             await Helper.WriteFile(filePath, content);
@@ -42,7 +42,7 @@ namespace ng_gen
 
             // dashSingle/dashSingle.page.spec.ts
             filePath = Path.Combine(outputPath, $"{dashSingle}.page.spec.ts");
-            content = Files.PageTest
+            content = (await Templates.GetPageTest())
                 .Replace("#dash-single#", dashSingle)
                 .Replace("#PascalSingle#", pascalSingle);
             await Helper.WriteFile(filePath, content);
@@ -56,7 +56,7 @@ namespace ng_gen
 
             // dashSingle/dashSingle.page.html
             filePath = Path.Combine(outputPath, $"{dashSingle}.page.html");
-            content = Files.PageView
+            content = (await Templates.GetPageView())
                 .Replace("#dash-single#", dashSingle);
             await Helper.WriteFile(filePath, content);
             Console.WriteLine($"{displayPath}/{dashSingle}.page.html");

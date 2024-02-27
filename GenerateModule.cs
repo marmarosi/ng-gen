@@ -21,13 +21,13 @@ namespace ng_gen
 
             // dashPlural.routes.ts
             filePath = Path.Combine(outputPath, $"{dashPlural}.routes.ts");
-            content = Files.Routes;
+            content = await Templates.GetRoutes();
             await Helper.WriteFile(filePath, content);
             Console.WriteLine($"{dashPlural}/{dashPlural}.routes.ts");
 
             // dashPlural.module.ts
             filePath = Path.Combine(outputPath, $"{dashPlural}.module.ts");
-            content = Files.Module
+            content = (await Templates.GetModule())
                 .Replace("#dash-plural#", dashPlural)
                 .Replace("#PascalPlural#", pascalPlural);
             await Helper.WriteFile(filePath, content);
@@ -41,9 +41,11 @@ namespace ng_gen
             Directory.CreateDirectory(Path.Combine(outputPath, "services"));
             Directory.CreateDirectory(Path.Combine(outputPath, "services/interfaces"));
 
+            #region Components
+
             // components/index.ts
             filePath = Path.Combine(outputPath, $"components/index.ts");
-            content = Files.ComponentIndex
+            content = (await Templates.GetComponentIndex())
                 .Replace("#dash-single#", dashSingle)
                 .Replace("#PascalSingle#", pascalSingle);
             await Helper.WriteFile(filePath, content);
@@ -54,9 +56,13 @@ namespace ng_gen
             string componentPath2 = Path.Combine(dirPath ?? "", componentPath1);
             await GenerateComponent.FromModule(config, componentPath2, dashSingle, prefix, "component", componentPath1);
 
+            #endregion
+
+            #region Dialogs
+
             // dialogs/index.ts
             filePath = Path.Combine(outputPath, $"dialogs/index.ts");
-            content = Files.DialogIndex
+            content = (await Templates.GetDialogIndex())
                 .Replace("#dash-single#", dashSingle)
                 .Replace("#PascalSingle#", pascalSingle);
             await Helper.WriteFile(filePath, content);
@@ -67,9 +73,13 @@ namespace ng_gen
             string dialogPath2 = Path.Combine(dirPath ?? "", dialogPath1);
             await GenerateDialog.FromModule(config, dialogPath2, dashSingle, dialogPath1);
 
+            #endregion
+
+            #region Models
+
             // models/index.ts
             filePath = Path.Combine(outputPath, $"models/index.ts");
-            content = Files.ModelIndex
+            content = (await Templates.GetModelIndex())
                 .Replace("#PascalSingle#", pascalSingle)
                 .Replace("#dash-single#", dashSingle);
             await Helper.WriteFile(filePath, content);
@@ -77,30 +87,34 @@ namespace ng_gen
 
             // models/actions.ts
             filePath = Path.Combine(outputPath, $"models/actions.ts");
-            content = Files.Actions
+            content = (await Templates.GetActions())
                 .Replace("#PascalSingle#", pascalSingle);
             await Helper.WriteFile(filePath, content);
             Console.WriteLine($"{dashPlural}/models/actions.ts");
 
-            // models/dialog.data.ts
+            // models/dashSingle.data.ts
             filePath = Path.Combine(outputPath, $"models/{dashSingle}.data.ts");
-            content = Files.DialogData
+            content = (await Templates.GetDialogData())
                 .Replace("#PascalSingle#", pascalSingle);
             await Helper.WriteFile(filePath, content);
             Console.WriteLine($"{dashPlural}/models/{dashSingle}.data.ts");
 
             // models/dashSingle.model.ts
             filePath = Path.Combine(outputPath, $"models/{dashSingle}.model.ts");
-            content = Files.Model
+            content = (await Templates.GetModel())
                 .Replace("#camelPlural#", camelPlural)
                 .Replace("#camelSingle#", camelSingle)
                 .Replace("#PascalSingle#", pascalSingle);
             await Helper.WriteFile(filePath, content);
             Console.WriteLine($"{dashPlural}/models/{dashSingle}.model.ts");
 
+            #endregion
+
+            #region Pages
+
             // pages/index.ts
             filePath = Path.Combine(outputPath, $"pages/index.ts");
-            content = Files.PageIndex
+            content = (await Templates.GetPageIndex())
                 .Replace("#dash-single#", dashSingle)
                 .Replace("#PascalSingle#", pascalSingle);
             await Helper.WriteFile(filePath, content);
@@ -111,9 +125,13 @@ namespace ng_gen
             string pagePath2 = Path.Combine(dirPath ?? "", pagePath1);
             await GeneratePage.FromModule(config, pagePath2, dashSingle, pagePath1);
 
+            #endregion
+
+            #region Services
+
             // services/index.ts
             filePath = Path.Combine(outputPath, $"services/index.ts");
-            content = Files.ServiceIndex
+            content = (await Templates.GetServiceIndex())
                 .Replace("#dash-single#", dashSingle)
                 .Replace("#PascalSingle#", pascalSingle);
             await Helper.WriteFile(filePath, content);
@@ -126,9 +144,13 @@ namespace ng_gen
             await GenerateService.FromModule(config, servicePath2, dashSingle, "api", servicePath1);
             await GenerateService.FromModule(config, servicePath2, dashSingle, "navigator", servicePath1);
 
+            #endregion
+
+            #region Interfaces
+
             // services/interfaces/index.ts
             filePath = Path.Combine(outputPath, $"services/interfaces/index.ts");
-            content = Files.InterfacesIndex
+            content = (await Templates.GetInterfacesIndex())
                 .Replace("#dash-single#", dashSingle)
                 .Replace("#PascalSingle#", pascalSingle);
             await Helper.WriteFile(filePath, content);
@@ -136,24 +158,26 @@ namespace ng_gen
 
             // services/interfaces/dashSingle.dto.ts
             filePath = Path.Combine(outputPath, $"services/interfaces/{dashSingle}.dto.ts");
-            content = Files.ModelDto
+            content = (await Templates.GetModelDto())
                 .Replace("#PascalSingle#", pascalSingle);
             await Helper.WriteFile(filePath, content);
             Console.WriteLine($"{dashPlural}/services/interfaces/{dashSingle}.dto.ts");
 
             // services/interfaces/dashSingle-list-item.dto.ts
             filePath = Path.Combine(outputPath, $"services/interfaces/{dashSingle}-list-item.dto.ts");
-            content = Files.ModelListItemDto
+            content = (await Templates.GetModelListItemDto())
                 .Replace("#PascalSingle#", pascalSingle);
             await Helper.WriteFile(filePath, content);
             Console.WriteLine($"{dashPlural}/services/interfaces/{dashSingle}-list-item.dto.ts");
 
             // services/interfaces/dashSingle-view.dto.ts
             filePath = Path.Combine(outputPath, $"services/interfaces/{dashSingle}-view.dto.ts");
-            content = Files.ModelViewDto
+            content = (await Templates.GetModelViewDto())
                 .Replace("#PascalSingle#", pascalSingle);
             await Helper.WriteFile(filePath, content);
-            Console.WriteLine($"{dashPlural}/services/interfaces/{dashSingle}-view.dto.ts");
+            Console.WriteLine($"{dashPlural}/services/interfaces/{dashSingle}-view.dto.ts"); 
+
+            #endregion
         }
     }
 }

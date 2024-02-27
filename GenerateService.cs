@@ -39,18 +39,18 @@ namespace ng_gen
             switch (type.ToLower())
             {
                 case "api":
-                    content = Files.ApiCode
+                    content = (await Templates.GetApiCode())
                         .Replace("#PascalSingle#", pascalSingle)
                         .Replace("#PascalType#", pascalType)
                         .Replace("#camelSingle#", camelSingle);
                     break;
                 case "navigator":
-                    content = Files.NavigatorCode
+                    content = (await Templates.GetNavigatorCode())
                         .Replace("#PascalSingle#", pascalSingle)
                         .Replace("#dash-single#", dashSingle);
                     break;
                 default:
-                    content = Files.ServiceCode
+                    content = (await Templates.GetServiceCode())
                         .Replace("#PascalSingle#", pascalSingle)
                         .Replace("#PascalType#", pascalType);
                     break;
@@ -63,18 +63,18 @@ namespace ng_gen
             switch (type.ToLower())
             {
                 case "api":
-                    content = Files.ApiTest
+                    content = (await Templates.GetApiTest())
                         .Replace("#PascalSingle#", pascalSingle)
                         .Replace("#dash-single#", dashSingle);
                     break;
                 case "navigator":
-                    content = Files.NavigatorTest
+                    content = (await Templates.GetNavigatorTest())
                         .Replace("#PascalSingle#", pascalSingle)
                         .Replace("#dash-single#", dashSingle)
                         .Replace("#camelSingle#", camelSingle);
                     break;
                 default:
-                    content = Files.ServiceTest
+                    content = (await Templates.GetServiceTest())
                         .Replace("#dash-single#", dashSingle)
                         .Replace("#PascalSingle#", pascalSingle)
                         .Replace("#dash-type#", dashType)

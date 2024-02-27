@@ -34,7 +34,7 @@ namespace ng_gen
                     defaultPath = dirInfo.FullName;
                 }
                 else
-                    throw new DirectoryNotFoundException($"Directory not found: {defaultPath}");
+                    throw new DirectoryNotFoundException($"Output directory not found: {defaultPath}");
             }
             else
                 defaultPath = currentDir;
@@ -60,12 +60,25 @@ namespace ng_gen
             return outputPath!;
         }
 
+        internal static async Task<string> ReadFile(
+            string filePath
+            )
+        {
+            string content = "";
+            if (File.Exists(filePath))
+                using (var inputFile = new StreamReader(filePath))
+                    content = await inputFile.ReadToEndAsync();
+            else
+                Console.WriteLine($"*** Missing template: {filePath}");
+            return content;
+        }
+
         internal static async Task WriteFile(
             string filePath,
             string content
             )
         {
-            using (StreamWriter outputFile = new StreamWriter(filePath))
+            using (var outputFile = new StreamWriter(filePath))
                 await outputFile.WriteAsync(content);
         }
 
