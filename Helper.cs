@@ -12,42 +12,51 @@ namespace ng_gen
             string name
             )
         {
-            string outputPath;
+            string outputPath, defaultPath;
             DirectoryInfo dirInfo;
 
+            // Get current directory.
             string currentDir = Path.GetDirectoryName(
                 System.Reflection.Assembly.GetExecutingAssembly().Location
                 );
+
+            // Determine default path.
             if (!string.IsNullOrWhiteSpace(Program.OutputDirectory))
             {
-                outputPath = Program.OutputDirectory.Trim();
-                if (outputPath.StartsWith('.'))
+                defaultPath = Program.OutputDirectory.Trim();
+                if (defaultPath.StartsWith('.'))
                 {
-                    outputPath = Path.Combine(currentDir!, outputPath);
+                    defaultPath = Path.Combine(currentDir!, defaultPath);
                 }
-                if (Directory.Exists(outputPath))
+                if (Directory.Exists(defaultPath))
                 {
-                    dirInfo = new DirectoryInfo(outputPath);
-                    outputPath = dirInfo.FullName;
+                    dirInfo = new DirectoryInfo(defaultPath);
+                    defaultPath = dirInfo.FullName;
                 }
                 else
-                    throw new DirectoryNotFoundException($"Directory not found: {outputPath}");
+                    throw new DirectoryNotFoundException($"Directory not found: {defaultPath}");
             }
             else
-                outputPath = currentDir;
+                defaultPath = currentDir;
 
+            // Determine output path.
             if (!string.IsNullOrWhiteSpace(dirPath))
             {
-                outputPath = Path.Combine(outputPath!, dirPath);
+                outputPath = Path.Combine(defaultPath!, dirPath);
                 if (!Directory.Exists(outputPath))
                     dirInfo = Directory.CreateDirectory(outputPath);
                 else
                     dirInfo = new DirectoryInfo(outputPath);
                 outputPath = dirInfo.FullName;
             }
+            else
+                outputPath = defaultPath;
+
+            // Create output path when it does not exist.
             outputPath = Path.Combine(outputPath!, name.ToLower());
             if (!Directory.Exists(outputPath))
                 Directory.CreateDirectory(outputPath);
+
             return outputPath!;
         }
 

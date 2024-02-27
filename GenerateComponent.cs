@@ -3,16 +3,18 @@ namespace ng_gen
     internal static class GenerateComponent
     {
         internal static async Task Run(
+            string config,
             string dirPath,
             string name,
             string prefix,
             string type
             )
         {
-            await FromModule(dirPath, name, prefix, type ?? "component");
+            await FromModule(config, dirPath, name, prefix, type ?? "component");
         }
 
         internal static async Task FromModule(
+            string config,
             string dirPath,
             string name,
             string prefix,
@@ -20,6 +22,7 @@ namespace ng_gen
             string? modulePath = null
             )
         {
+            Program.ReadSettings(config);
             string outputPath = Helper.GetOutputPath(dirPath, name);
             string filePath, content;
             string dashPlural = name.ToLower();

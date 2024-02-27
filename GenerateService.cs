@@ -3,21 +3,24 @@ namespace ng_gen
     internal static class GenerateService
     {
         internal static async Task Run(
+            string config,
             string dirPath,
             string name,
             string type
             )
         {
-            await FromModule(dirPath, name, type ?? "service");
+            await FromModule(config, dirPath, name, type ?? "service");
         }
 
         internal static async Task FromModule(
+            string config,
             string dirPath,
             string name,
             string type,
             string? modulePath = null
             )
         {
+            Program.ReadSettings(config);
             string outputPath = Helper.GetOutputPath(dirPath, "");
             string filePath, content;
             string dashPlural = name.ToLower();

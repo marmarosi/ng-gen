@@ -2,7 +2,7 @@
   "profiles": {
     "ng-gen": {
       "commandName": "Project",
-      "commandLineArgs": "m soft-drinks"
+      "commandLineArgs": "m templates -c mj-settings"
     }
   }
 }

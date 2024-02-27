@@ -3,11 +3,13 @@ namespace ng_gen
     internal static class GenerateModule
     {
         internal static async Task Run(
+            string config,
             string dirPath,
             string name,
             string prefix
             )
         {
+            Program.ReadSettings(config);
             string outputPath = Helper.GetOutputPath(dirPath, name);
             string filePath, content;
             string dashPlural = name.ToLower();
@@ -50,7 +52,7 @@ namespace ng_gen
             // components/dashSingle/*
             string componentPath1 = string.Join("/", dashPlural, "components");
             string componentPath2 = Path.Combine(dirPath ?? "", componentPath1);
-            await GenerateComponent.FromModule(componentPath2, dashSingle, prefix, "component", componentPath1);
+            await GenerateComponent.FromModule(config, componentPath2, dashSingle, prefix, "component", componentPath1);
 
             // dialogs/index.ts
             filePath = Path.Combine(outputPath, $"dialogs/index.ts");
@@ -63,7 +65,7 @@ namespace ng_gen
             // dialogs/dashSingle/*
             string dialogPath1 = string.Join("/", dashPlural, "dialogs");
             string dialogPath2 = Path.Combine(dirPath ?? "", dialogPath1);
-            await GenerateDialog.FromModule(dialogPath2, dashSingle, dialogPath1);
+            await GenerateDialog.FromModule(config, dialogPath2, dashSingle, dialogPath1);
 
             // models/index.ts
             filePath = Path.Combine(outputPath, $"models/index.ts");
@@ -107,7 +109,7 @@ namespace ng_gen
             // pages/dashSingle/*
             string pagePath1 = string.Join("/", dashPlural, "pages");
             string pagePath2 = Path.Combine(dirPath ?? "", pagePath1);
-            await GeneratePage.FromModule(pagePath2, dashSingle, pagePath1);
+            await GeneratePage.FromModule(config, pagePath2, dashSingle, pagePath1);
 
             // services/index.ts
             filePath = Path.Combine(outputPath, $"services/index.ts");
@@ -121,8 +123,8 @@ namespace ng_gen
             // services/dashSingle.navigator.ts
             string servicePath1 = string.Join("/", dashPlural, "services");
             string servicePath2 = Path.Combine(dirPath ?? "", servicePath1);
-            await GenerateService.FromModule(servicePath2, dashSingle, "api", servicePath1);
-            await GenerateService.FromModule(servicePath2, dashSingle, "navigator", servicePath1);
+            await GenerateService.FromModule(config, servicePath2, dashSingle, "api", servicePath1);
+            await GenerateService.FromModule(config, servicePath2, dashSingle, "navigator", servicePath1);
 
             // services/interfaces/index.ts
             filePath = Path.Combine(outputPath, $"services/interfaces/index.ts");

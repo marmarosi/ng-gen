@@ -3,19 +3,22 @@ namespace ng_gen
     internal static class GenerateDialog
     {
         internal static async Task Run(
+            string config,
             string dirPath,
             string name
             )
         {
-            await FromModule(dirPath, name);
+            await FromModule(config, dirPath, name);
         }
 
         internal static async Task FromModule(
+            string config,
             string dirPath,
             string name,
             string? modulePath = null
             )
         {
+            Program.ReadSettings(config);
             string outputPath = Helper.GetOutputPath(dirPath, name);
             string filePath, content;
             string dashPlural = name.ToLower();

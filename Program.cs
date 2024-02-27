@@ -5,20 +5,18 @@ namespace ng_gen;
 
 static class Program
 {
+    private static bool hasConfig = false;
     internal static string? OutputDirectory { get; set; }
     internal static string? TemplatePath { get; set; }
 
     static async Task<int> Main(string[] args)
     {
-        var builder = new ConfigurationBuilder();
-        builder.SetBasePath(Directory.GetCurrentDirectory())
-           .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
-
-        IConfiguration config = builder.Build();
-        OutputDirectory = config["OutputDirectory"];
-        TemplatePath = config["TemplatePath"];
-
         // Define options
+
+        var configOption = new Option<string>(
+            name: "--config",
+            description: "The name of the settings file without .json extension.");
+        configOption.AddAlias("-c");
 
         var dirPathOption = new Option<string>(
             name: "--output-dir",
@@ -49,11 +47,11 @@ static class Program
         moduleCommand.AddArgument(nameArgument);
         moduleCommand.AddOption(prefixOption);
 
-        moduleCommand.SetHandler(async (dirPath, name, prefix) =>
+        moduleCommand.SetHandler(async (config, dirPath, name, prefix) =>
             {
-                await GenerateModule.Run(dirPath, name, prefix);
+                await GenerateModule.Run(config, dirPath, name, prefix);
             },
-            dirPathOption, nameArgument, prefixOption);
+            configOption, dirPathOption, nameArgument, prefixOption);
 
         // Define page command
 
@@ -61,11 +59,11 @@ static class Program
         pageCommand.AddAlias("p");
         pageCommand.AddArgument(nameArgument);
 
-        pageCommand.SetHandler(async (dirPath, name) =>
+        pageCommand.SetHandler(async (config, dirPath, name) =>
             {
-                await GeneratePage.Run(dirPath, name);
+                await GeneratePage.Run(config, dirPath, name);
             },
-            dirPathOption, nameArgument);
+            configOption, dirPathOption, nameArgument);
 
         // Define component command
 
@@ -75,11 +73,11 @@ static class Program
         componentCommand.AddOption(prefixOption);
         componentCommand.AddOption(typeOption);
 
-        componentCommand.SetHandler(async (dirPath, name, prefix, type) =>
+        componentCommand.SetHandler(async (config, dirPath, name, prefix, type) =>
             {
-                await GenerateComponent.Run(dirPath, name, prefix, type);
+                await GenerateComponent.Run(config, dirPath, name, prefix, type);
             },
-            dirPathOption, nameArgument, prefixOption, typeOption);
+           configOption, dirPathOption, nameArgument, prefixOption, typeOption);
 
         // Define dialog command
 
@@ -87,24 +85,24 @@ static class Program
         dialogCommand.AddAlias("d");
         dialogCommand.AddArgument(nameArgument);
 
-        dialogCommand.SetHandler(async (dirPath, name) =>
+        dialogCommand.SetHandler(async (config, dirPath, name) =>
             {
-                await GenerateDialog.Run(dirPath, name);
+                await GenerateDialog.Run(config, dirPath, name);
             },
-            dirPathOption, nameArgument);
+            configOption, dirPathOption, nameArgument);
 
-        // Define dialog command
+        // Define service command
 
         var serviceCommand = new Command("service", "Generates a new service.");
         serviceCommand.AddAlias("s");
         serviceCommand.AddArgument(nameArgument);
         serviceCommand.AddOption(typeOption);
 
-        serviceCommand.SetHandler(async (dirPath, name, type) =>
+        serviceCommand.SetHandler(async (config, dirPath, name, type) =>
             {
-                await GenerateService.Run(dirPath, name, type);
+                await GenerateService.Run(config, dirPath, name, type);
             },
-            dirPathOption, nameArgument, typeOption);
+            configOption, dirPathOption, nameArgument, typeOption);
 
         // Define root command
 
@@ -116,11 +114,30 @@ static class Program
         rootCommand.AddCommand(dialogCommand);
         rootCommand.AddCommand(serviceCommand);
 
+        rootCommand.AddGlobalOption(configOption);
         rootCommand.AddGlobalOption(dirPathOption);
+
         rootCommand.AddOption(prefixOption);
         rootCommand.AddOption(typeOption);
 
         return await rootCommand.InvokeAsync(args);
     }
 
+    internal static void ReadSettings(
+        string configName
+        )
+    {
+        if (hasConfig)
+            return;
+        var settingsName = string.IsNullOrWhiteSpace(configName) ? "appsettings" : configName;
+        var builder = new ConfigurationBuilder();
+        builder.SetBasePath(Directory.GetCurrentDirectory())
+           .AddJsonFile($"{settingsName}.json", optional: false, reloadOnChange: true);
+
+        IConfiguration config = builder.Build();
+        OutputDirectory = config["OutputDirectory"];
+        TemplatePath = config["TemplatePath"];
+
+        hasConfig = true;
+    }
 }
