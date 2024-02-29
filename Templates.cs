@@ -37,6 +37,11 @@
             return await GetContent(Files.ComponentView, "components\\template\\template.component.html");
         }
 
+        internal static async Task<string> GetComponentText()
+        {
+            return await GetContent(Files.ComponentText, "components\\template\\template.component.text");
+        }
+
         #endregion
 
         #region Dialogs
@@ -59,6 +64,11 @@
         internal static async Task<string> GetDialogView()
         {
             return await GetContent(Files.DialogView, "dialogs\\template\\template.dialog.html");
+        }
+
+        internal static async Task<string> GetDialogText()
+        {
+            return await GetContent(Files.DialogText, "dialogs\\template\\template.dialog.text");
         }
 
         #endregion
@@ -107,6 +117,11 @@
         internal static async Task<string> GetPageView()
         {
             return await GetContent(Files.PageView, "pages\\template\\template.page.html");
+        }
+
+        internal static async Task<string> GetPageText()
+        {
+            return await GetContent(Files.PageText, "pages\\template\\template.page.text");
         }
 
         #endregion

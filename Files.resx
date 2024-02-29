@@ -279,6 +279,17 @@ describe('#PascalSingle##PascalType#', () =&gt; {
   });
 });</value>
   </data>
+  <data name="ComponentText" xml:space="preserve">
+    <value>#
+# file.node[.node[.node]...]
+#
+&gt; _void_.#camelSingle#
+#
+# [folder/][node.[node.]...]keyword: text
+#
+title: ?
+description: ?</value>
+  </data>
   <data name="ComponentView" xml:space="preserve">
     <value>&lt;p&gt;#dash-single# component works!&lt;/p&gt;</value>
   </data>
@@ -356,6 +367,17 @@ describe('#PascalSingle#Dialog', () =&gt; {
     expect(component).toBeTruthy();
   });
 });</value>
+  </data>
+  <data name="DialogText" xml:space="preserve">
+    <value>#
+# file.node[.node[.node]...]
+#
+&gt; _void_.#camelSingle#
+#
+# [folder/][node.[node.]...]keyword: text
+#
+title: ?
+description: ?</value>
   </data>
   <data name="DialogView" xml:space="preserve">
     <value>&lt;h2 mat-dialog-title&gt;Delete all elements?&lt;/h2&gt;
@@ -601,6 +623,17 @@ describe('#PascalSingle#Page', () =&gt; {
     expect(component).toBeTruthy();
   });
 });</value>
+  </data>
+  <data name="PageText" xml:space="preserve">
+    <value>#
+# file.node[.node[.node]...]
+#
+&gt; _void_.#camelSingle#
+#
+# [folder/][node.[node.]...]keyword: text
+#
+title: ?
+description: ?</value>
   </data>
   <data name="PageView" xml:space="preserve">
     <value>&lt;p&gt;#dash-single# page works!&lt;/p&gt;</value>

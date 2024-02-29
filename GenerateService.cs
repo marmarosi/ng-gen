@@ -35,7 +35,7 @@ namespace ng_gen
             string displayPath = modulePath is null ? "" : modulePath + "/";
 
             // dashSingle.{type}.ts
-            filePath = Path.Combine(outputPath, $"{dashSingle}.{type}.ts");
+            filePath = Path.Combine(outputPath, $"{dashSingle}.{dashType}.ts");
             switch (type.ToLower())
             {
                 case "api":
@@ -56,10 +56,10 @@ namespace ng_gen
                     break;
             }
             await Helper.WriteFile(filePath, content);
-            Console.WriteLine($"{displayPath}{dashSingle}.{type}.ts");
+            Console.WriteLine($"{displayPath}{dashSingle}.{dashType}.ts");
 
             // dashSingle.{type}.spec.ts
-            filePath = Path.Combine(outputPath, $"{dashSingle}.{type}.spec.ts");
+            filePath = Path.Combine(outputPath, $"{dashSingle}.{dashType}.spec.ts");
             switch (type.ToLower())
             {
                 case "api":
@@ -83,7 +83,7 @@ namespace ng_gen
                     break;
             }
             await Helper.WriteFile(filePath, content);
-            Console.WriteLine($"{displayPath}{dashSingle}.{type}.spec.ts");
+            Console.WriteLine($"{displayPath}{dashSingle}.{dashType}.spec.ts");
         }
     }
 }

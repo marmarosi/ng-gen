@@ -60,6 +60,13 @@ namespace ng_gen
                 .Replace("#dash-single#", dashSingle);
             await Helper.WriteFile(filePath, content);
             Console.WriteLine($"{displayPath}/{dashSingle}.page.html");
+
+            // dashSingle/dashSingle.page.text
+            filePath = Path.Combine(outputPath, $"{dashSingle}.page.text");
+            content = (await Templates.GetPageText())
+                .Replace("#camelSingle#", camelSingle);
+            await Helper.WriteFile(filePath, content);
+            Console.WriteLine($"{displayPath}/{dashSingle}.page.text");
         }
     }
 }

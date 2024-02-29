@@ -184,6 +184,23 @@ namespace ng_gen {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to #
+        ///# file.node[.node[.node]...]
+        ///#
+        ///&gt; _void_.#camelSingle#
+        ///#
+        ///# [folder/][node.[node.]...]keyword: text
+        ///#
+        ///title: ?
+        ///description: ?.
+        /// </summary>
+        internal static string ComponentText {
+            get {
+                return ResourceManager.GetString("ComponentText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;#dash-single# component works!&lt;/p&gt;.
         /// </summary>
         internal static string ComponentView {
@@ -267,6 +284,23 @@ namespace ng_gen {
         internal static string DialogTest {
             get {
                 return ResourceManager.GetString("DialogTest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to #
+        ///# file.node[.node[.node]...]
+        ///#
+        ///&gt; _void_.#camelSingle#
+        ///#
+        ///# [folder/][node.[node.]...]keyword: text
+        ///#
+        ///title: ?
+        ///description: ?.
+        /// </summary>
+        internal static string DialogText {
+            get {
+                return ResourceManager.GetString("DialogText", resourceCulture);
             }
         }
         
@@ -552,6 +586,23 @@ namespace ng_gen {
         internal static string PageTest {
             get {
                 return ResourceManager.GetString("PageTest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to #
+        ///# file.node[.node[.node]...]
+        ///#
+        ///&gt; _void_.#camelSingle#
+        ///#
+        ///# [folder/][node.[node.]...]keyword: text
+        ///#
+        ///title: ?
+        ///description: ?.
+        /// </summary>
+        internal static string PageText {
+            get {
+                return ResourceManager.GetString("PageText", resourceCulture);
             }
         }
         

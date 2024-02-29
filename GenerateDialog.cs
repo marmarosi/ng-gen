@@ -54,12 +54,19 @@ namespace ng_gen
             await Helper.WriteFile(filePath, content);
             Console.WriteLine($"{displayPath}/{dashSingle}.dialog.scss");
 
-            // dashSingle/dashSingle.v.html
+            // dashSingle/dashSingle.dialog.html
             filePath = Path.Combine(outputPath, $"{dashSingle}.dialog.html");
             content = (await Templates.GetDialogView())
                 .Replace("#dash-single#", dashSingle);
             await Helper.WriteFile(filePath, content);
             Console.WriteLine($"{displayPath}/{dashSingle}.dialog.html");
+
+            // dashSingle/dashSingle.dialog.text
+            filePath = Path.Combine(outputPath, $"{dashSingle}.dialog.text");
+            content = (await Templates.GetDialogText())
+                .Replace("#camelSingle#", camelSingle);
+            await Helper.WriteFile(filePath, content);
+            Console.WriteLine($"{displayPath}/{dashSingle}.dialog.text");
         }
     }
 }
