@@ -7,9 +7,11 @@ Usage:
 ```
 Options:
 ```
+-c, --config <config>          The name of the settings file without .json extension.
 -o, --output-dir <output-dir>  The path of the directory where the files will be generated.
 -x, --prefix <prefix>          The HTML prefix of the Angular component. [default: app]
 -t, --type <type>              The type of the Angular component/service.
+-i, --index <index>            The name of the components in the module. [default: index]
 --version                      Show version information
 -?, -h, --help                 Show help and usage information
 ```

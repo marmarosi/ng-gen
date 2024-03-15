@@ -34,6 +34,12 @@ static class Program
             description: "The type of the Angular component/service.");
         typeOption.AddAlias("-t");
 
+        var indexOption = new Option<string>(
+            name: "--index",
+            description: "The name of the components in the module.",
+            getDefaultValue: () => "index");
+        indexOption.AddAlias("-i");
+
         // Define arguments
 
         var nameArgument = new Argument<string>(
@@ -46,12 +52,13 @@ static class Program
         moduleCommand.AddAlias("m");
         moduleCommand.AddArgument(nameArgument);
         moduleCommand.AddOption(prefixOption);
+        moduleCommand.AddOption(indexOption);
 
-        moduleCommand.SetHandler(async (config, dirPath, name, prefix) =>
+        moduleCommand.SetHandler(async (config, dirPath, name, prefix, index) =>
             {
-                await GenerateModule.Run(config, dirPath, name, prefix);
+                await GenerateModule.Run(config, dirPath, name, prefix, index);
             },
-            configOption, dirPathOption, nameArgument, prefixOption);
+            configOption, dirPathOption, nameArgument, prefixOption, indexOption);
 
         // Define page command
 
@@ -119,6 +126,7 @@ static class Program
 
         rootCommand.AddOption(prefixOption);
         rootCommand.AddOption(typeOption);
+        rootCommand.AddOption(indexOption);
 
         return await rootCommand.InvokeAsync(args);
     }

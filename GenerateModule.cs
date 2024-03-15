@@ -6,7 +6,8 @@ namespace ng_gen
             string config,
             string dirPath,
             string name,
-            string prefix
+            string prefix,
+            string index
             )
         {
             Program.ReadSettings(config);
@@ -18,6 +19,8 @@ namespace ng_gen
             string dashSingle = dashPlural.ToSingle();
             string pascalSingle = pascalPlural.ToSingle();
             string camelSingle = pascalSingle.FirstCharToLowerCase();
+            string indexDash = index.ToSingle().ToLower().ToSingle();
+            string indexPascal = indexDash.ToPascalCase();
 
             // dashPlural.routes.ts
             filePath = Path.Combine(outputPath, $"{dashPlural}.routes.ts");
@@ -46,15 +49,15 @@ namespace ng_gen
             // components/index.ts
             filePath = Path.Combine(outputPath, $"components/index.ts");
             content = (await Templates.GetComponentIndex())
-                .Replace("#dash-single#", dashSingle)
-                .Replace("#PascalSingle#", pascalSingle);
+                .Replace("#dash-single#", indexDash)
+                .Replace("#PascalSingle#", indexPascal);
             await Helper.WriteFile(filePath, content);
             Console.WriteLine($"{dashPlural}/components/index.ts");
 
             // components/dashSingle/*
             string componentPath1 = string.Join("/", dashPlural, "components");
             string componentPath2 = Path.Combine(dirPath ?? "", componentPath1);
-            await GenerateComponent.FromModule(config, componentPath2, dashSingle, prefix, "component", componentPath1);
+            await GenerateComponent.FromModule(config, componentPath2, index, prefix, "component", componentPath1);
 
             #endregion
 
@@ -63,15 +66,15 @@ namespace ng_gen
             // dialogs/index.ts
             filePath = Path.Combine(outputPath, $"dialogs/index.ts");
             content = (await Templates.GetDialogIndex())
-                .Replace("#dash-single#", dashSingle)
-                .Replace("#PascalSingle#", pascalSingle);
+                .Replace("#dash-single#", indexDash)
+                .Replace("#PascalSingle#", indexPascal);
             await Helper.WriteFile(filePath, content);
             Console.WriteLine($"{dashPlural}/dialogs/index.ts");
 
             // dialogs/dashSingle/*
             string dialogPath1 = string.Join("/", dashPlural, "dialogs");
             string dialogPath2 = Path.Combine(dirPath ?? "", dialogPath1);
-            await GenerateDialog.FromModule(config, dialogPath2, dashSingle, dialogPath1);
+            await GenerateDialog.FromModule(config, dialogPath2, index, dialogPath1);
 
             #endregion
 
@@ -115,15 +118,15 @@ namespace ng_gen
             // pages/index.ts
             filePath = Path.Combine(outputPath, $"pages/index.ts");
             content = (await Templates.GetPageIndex())
-                .Replace("#dash-single#", dashSingle)
-                .Replace("#PascalSingle#", pascalSingle);
+                .Replace("#dash-single#", indexDash)
+                .Replace("#PascalSingle#", indexPascal);
             await Helper.WriteFile(filePath, content);
             Console.WriteLine($"{dashPlural}/pages/index.ts");
 
             // pages/dashSingle/*
             string pagePath1 = string.Join("/", dashPlural, "pages");
             string pagePath2 = Path.Combine(dirPath ?? "", pagePath1);
-            await GeneratePage.FromModule(config, pagePath2, dashSingle, pagePath1);
+            await GeneratePage.FromModule(config, pagePath2, index, pagePath1);
 
             #endregion
 
