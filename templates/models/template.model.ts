@@ -5,9 +5,9 @@ import { required, maxLength, prop } from '@rxweb/reactive-form-validators';
 
 /* locally accessible feature module code, always use relative path */
 
-const msgRoot = '#camelPlural#.#camelSingle#.';
+const msgRoot = '#camelPlural#.#camelIndex#.';
 
-export class #PascalSingle# {
+export class #PascalIndex# {
 
   public modelId?: string;
 

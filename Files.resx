@@ -124,7 +124,7 @@
 
 /* locally accessible feature module code, always use relative path */
 
-export const enum #PascalSingle#Action {
+export const enum #PascalIndex#Action {
   view
 }</value>
   </data>
@@ -232,12 +232,12 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 /* locally accessible feature module code, always use relative path */
 
 @Component({
-  selector: '#prefix#-#dash-single#',
-  templateUrl: './#dash-single#.#dash-type#.html',
-  styleUrl: './#dash-single#.#dash-type#.scss',
+  selector: '#prefix#-#dash-name#',
+  templateUrl: './#dash-name#.#dash-type#.html',
+  styleUrl: './#dash-name#.#dash-type#.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class #PascalSingle##PascalType# {
+export class #PascalName##PascalType# {
 
 }</value>
   </data>
@@ -257,19 +257,19 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 /* globally accessible app code in every feature module */
 
 /* locally accessible feature module code, always use relative path */
-import { #PascalSingle##PascalType# } from './#dash-single#.#dash-type#';
+import { #PascalName##PascalType# } from './#dash-name#.#dash-type#';
 
-describe('#PascalSingle##PascalType#', () =&gt; {
-  let #camelType#: #PascalSingle##PascalType#;
-  let fixture: #PascalType#Fixture&lt;#PascalSingle##PascalType#&gt;;
+describe('#PascalName##PascalType#', () =&gt; {
+  let #camelType#: #PascalName##PascalType#;
+  let fixture: #PascalType#Fixture&lt;#PascalName##PascalType#&gt;;
 
   beforeEach(async () =&gt; {
     await TestBed.configureTestingModule({
-      declarations: [#PascalSingle##PascalType#]
+      declarations: [#PascalName##PascalType#]
     })
-    .compile#PascalType#s();
+    .compileComponents();
     
-    fixture = TestBed.create#PascalType#(#PascalSingle##PascalType#);
+    fixture = TestBed.create#PascalType#(#PascalName##PascalType#);
     #camelType# = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -284,17 +284,17 @@ describe('#PascalSingle##PascalType#', () =&gt; {
 # Target translation (.json) file:
 # [folder/]file.node[.node[.node]...]
 #
-&gt; #camelSingle#.#camelSingle#
+&gt; #camelName#.#camelName#
 #
 # Text definition:
 # [node.[node.]...]keyword: text
 #
 
-title: #PascalPlural#
-description: #dash-plural# component works!</value>
+title: #PascalName#
+description: #dash-name# component works!</value>
   </data>
   <data name="ComponentView" xml:space="preserve">
-    <value>&lt;ng-container *translate="let t; node: '#camelSingle#.#camelSingle#'"&gt;
+    <value>&lt;ng-container *translate="let t; node: '#camelName#.#camelName#'"&gt;
 
     &lt;h1&gt;{{ t( 'title' ) }}&lt;/h1&gt;
 
@@ -311,17 +311,17 @@ import { Observable } from 'rxjs';
 /* globally accessible app code in every feature module */
 
 /* locally accessible feature module code, always use relative path */
-import { #PascalSingle#Data } from '../../models';
+import { #PascalName#Data } from '../../models';
 
 @Component({
-  templateUrl: './#dash-single#.dialog.html',
-  styleUrl: './#dash-single#.dialog.scss',
+  templateUrl: './#dash-name#.dialog.html',
+  styleUrl: './#dash-name#.dialog.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class #PascalSingle#Dialog {
+export class #PascalName#Dialog {
 
   constructor(
-    @Inject( MAT_DIALOG_DATA ) public readonly data: Observable&lt;#PascalSingle#Data&gt;
+    @Inject( MAT_DIALOG_DATA ) public readonly data: Observable&lt;#PascalName#Data&gt;
   ) { }
 }</value>
   </data>
@@ -332,7 +332,7 @@ export class #PascalSingle#Dialog {
 
 /* locally accessible feature module code, always use relative path */
 
-export interface #PascalSingle#Data {
+export interface #PascalIndex#Data {
 
   name: string;
 }</value>
@@ -353,21 +353,21 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 /* globally accessible app code in every feature module */
 
 /* locally accessible feature module code, always use relative path */
-import { #PascalSingle#Dialog } from './#dash-single#.dialog';
+import { #PascalName#Dialog } from './#dash-name#.dialog';
 
-describe('#PascalSingle#Dialog', () =&gt; {
-  let component: #PascalSingle#Dialog;
-  let fixture: ComponentFixture&lt;#PascalSingle#Dialog&gt;;
+describe('#PascalName#Dialog', () =&gt; {
+  let component: #PascalName#Dialog;
+  let fixture: ComponentFixture&lt;#PascalName#Dialog&gt;;
 
   beforeEach(async () =&gt; {
     await TestBed.configureTestingModule({
-      declarations: [ #PascalSingle#Dialog ]
+      declarations: [ #PascalName#Dialog ]
     })
     .compileComponents();
   });
 
   beforeEach(() =&gt; {
-    fixture = TestBed.createComponent(#PascalSingle#Dialog);
+    fixture = TestBed.createComponent(#PascalName#Dialog);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -382,7 +382,7 @@ describe('#PascalSingle#Dialog', () =&gt; {
 # Target translation (.json) file:
 # [folder/]file.node[.node[.node]...]
 #
-&gt; #camelSingle#.#camelSingle#
+&gt; #camelName#.#camelName#
 #
 # Text definition:
 # [node.[node.]...]keyword: text
@@ -394,7 +394,7 @@ cancel: Cancel
 delete: Delete</value>
   </data>
   <data name="DialogView" xml:space="preserve">
-    <value>&lt;ng-container *translate="let t; node: '#camelSingle#.#camelSingle#'"&gt;
+    <value>&lt;ng-container *translate="let t; node: '#camelName#.#camelName#'"&gt;
 
     &lt;h2 mat-dialog-title&gt;{{ t( 'title' ) }}&lt;/h2&gt;
 
@@ -422,9 +422,9 @@ import { required, maxLength, prop } from '@rxweb/reactive-form-validators';
 
 /* locally accessible feature module code, always use relative path */
 
-const msgRoot = '#camelPlural#.#camelSingle#.';
+const msgRoot = '#camelPlural#.#camelIndex#.';
 
-export class #PascalSingle# {
+export class #PascalIndex# {
 
   public modelId?: string;
 
@@ -462,8 +462,8 @@ export namespace #PascalSingle#Dto {
   </data>
   <data name="ModelIndex" xml:space="preserve">
     <value>export * from './actions';
-export { #PascalSingle#Data } from './#dash-single#.data';
-export { #PascalSingle# } from './#dash-single#.model';</value>
+export { #PascalIndex#Data } from './#dash-index#.data';
+export { #PascalIndex# } from './#dash-index#.model';</value>
   </data>
   <data name="ModelListItemDto" xml:space="preserve">
     <value>/* 3rd party libraries */
@@ -598,11 +598,11 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 /* locally accessible feature module code, always use relative path */
 
 @Component({
-  templateUrl: './#dash-single#.page.html',
-  styleUrl: './#dash-single#.page.scss',
+  templateUrl: './#dash-name#.page.html',
+  styleUrl: './#dash-name#.page.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class #PascalSingle#Page {
+export class #PascalName#Page {
 
 }</value>
   </data>
@@ -622,19 +622,19 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 /* globally accessible app code in every feature module */
 
 /* locally accessible feature module code, always use relative path */
-import { #PascalSingle#Page } from './#dash-single#.page';
+import { #PascalName#Page } from './#dash-name#.page';
 
-describe('#PascalSingle#Page', () =&gt; {
-  let component: #PascalSingle#Page;
-  let fixture: ComponentFixture&lt;#PascalSingle#Page&gt;;
+describe('#PascalName#Page', () =&gt; {
+  let component: #PascalName#Page;
+  let fixture: ComponentFixture&lt;#PascalName#Page&gt;;
 
   beforeEach(async () =&gt; {
     await TestBed.configureTestingModule({
-      declarations: [#PascalSingle#Page]
+      declarations: [#PascalName#Page]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(#PascalSingle#Page);
+    fixture = TestBed.createComponent(#PascalName#Page);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -649,17 +649,17 @@ describe('#PascalSingle#Page', () =&gt; {
 # Target translation (.json) file:
 # [folder/]file.node[.node[.node]...]
 #
-&gt; #camelSingle#.#camelSingle#
+&gt; #camelName#.#camelName#
 #
 # Text definition:
 # [node.[node.]...]keyword: text
 #
 
-title: #PascalPlural#
-description: #dash-plural# page works!</value>
+title: #PascalName#
+description: #dash-name# page works!</value>
   </data>
   <data name="PageView" xml:space="preserve">
-    <value>&lt;ng-container *translate="let t; node: '#camelSingle#.#camelSingle#'"&gt;
+    <value>&lt;ng-container *translate="let t; node: '#camelName#.#camelName#'"&gt;
 
     &lt;h1&gt;{{ t( 'title' ) }}&lt;/h1&gt;
 

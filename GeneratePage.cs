@@ -19,54 +19,53 @@ namespace ng_gen
             )
         {
             Program.ReadSettings(config);
-            string outputPath = Helper.GetOutputPath(dirPath, name);
             string filePath, content;
-            string dashPlural = name.ToLower();
-            string pascalPlural = dashPlural.ToPascalCase();
-            string camelPlural = pascalPlural.FirstCharToLowerCase();
-            string dashSingle = dashPlural.ToSingle();
-            string pascalSingle = pascalPlural.ToSingle();
-            string camelSingle = pascalSingle.FirstCharToLowerCase();
-            string displayPath = modulePath ?? dashSingle;
+            string dashName = name.ToLower();
+            string pascalName = dashName.ToPascalCase();
+            string camelName = pascalName.FirstCharToLowerCase();
+            string displayPath = modulePath ?? dashName;
 
             // subdirectory
+            string outputPath = Helper.GetOutputPath(dirPath, dashName);
             Directory.CreateDirectory(outputPath);
 
-            // dashSingle/dashSingle.page.ts
-            filePath = Path.Combine(outputPath, $"{dashSingle}.page.ts");
+            // dashName/dashName.page.ts
+            filePath = Path.Combine(outputPath, $"{dashName}.page.ts");
             content = (await Templates.GetPageCode())
-                .Replace("#dash-single#", dashSingle)
-                .Replace("#PascalSingle#", pascalSingle);
+                .Replace("#dash-name#", dashName)
+                .Replace("#PascalName#", pascalName);
             await Helper.WriteFile(filePath, content);
-            Console.WriteLine($"{displayPath}/{dashSingle}.page.ts");
+            Console.WriteLine($"{displayPath}/{dashName}.page.ts");
 
-            // dashSingle/dashSingle.page.spec.ts
-            filePath = Path.Combine(outputPath, $"{dashSingle}.page.spec.ts");
+            // dashName/dashName.page.spec.ts
+            filePath = Path.Combine(outputPath, $"{dashName}.page.spec.ts");
             content = (await Templates.GetPageTest())
-                .Replace("#dash-single#", dashSingle)
-                .Replace("#PascalSingle#", pascalSingle);
+                .Replace("#dash-name#", dashName)
+                .Replace("#PascalName#", pascalName);
             await Helper.WriteFile(filePath, content);
-            Console.WriteLine($"{displayPath}/{dashSingle}.page.spec.ts");
+            Console.WriteLine($"{displayPath}/{dashName}.page.spec.ts");
 
-            // dashSingle/dashSingle.page.scss
-            filePath = Path.Combine(outputPath, $"{dashSingle}.page.scss");
+            // dashName/dashName.page.scss
+            filePath = Path.Combine(outputPath, $"{dashName}.page.scss");
             content = "";
             await Helper.WriteFile(filePath, content);
-            Console.WriteLine($"{displayPath}/{dashSingle}.page.scss");
+            Console.WriteLine($"{displayPath}/{dashName}.page.scss");
 
-            // dashSingle/dashSingle.page.html
-            filePath = Path.Combine(outputPath, $"{dashSingle}.page.html");
+            // dashName/dashName.page.html
+            filePath = Path.Combine(outputPath, $"{dashName}.page.html");
             content = (await Templates.GetPageView())
-                .Replace("#dash-single#", dashSingle);
+                .Replace("#dash-name#", dashName);
             await Helper.WriteFile(filePath, content);
-            Console.WriteLine($"{displayPath}/{dashSingle}.page.html");
+            Console.WriteLine($"{displayPath}/{dashName}.page.html");
 
-            // dashSingle/dashSingle.page.text
-            filePath = Path.Combine(outputPath, $"{dashSingle}.page.text");
+            // dashName/dashName.page.text
+            filePath = Path.Combine(outputPath, $"{dashName}.page.text");
             content = (await Templates.GetPageText())
-                .Replace("#camelSingle#", camelSingle);
+                .Replace("#camelName#", camelName)
+                .Replace("#PascalName#", pascalName)
+                .Replace("#dash-name#", dashName);
             await Helper.WriteFile(filePath, content);
-            Console.WriteLine($"{displayPath}/{dashSingle}.page.text");
+            Console.WriteLine($"{displayPath}/{dashName}.page.text");
         }
     }
 }

@@ -23,67 +23,64 @@ namespace ng_gen
             Program.ReadSettings(config);
             string outputPath = Helper.GetOutputPath(dirPath, "");
             string filePath, content;
-            string dashPlural = name.ToLower();
-            string pascalPlural = dashPlural.ToPascalCase();
-            string camelPlural = pascalPlural.FirstCharToLowerCase();
-            string dashSingle = dashPlural.ToSingle();
-            string pascalSingle = pascalPlural.ToSingle();
-            string camelSingle = pascalSingle.FirstCharToLowerCase();
+            string dashName = name.ToLower();
+            string pascalName = dashName.ToPascalCase();
+            string camelName = pascalName.FirstCharToLowerCase();
             string dashType = type;
             string pascalType = type.ToPascalCase();
             string camelType = pascalType.FirstCharToLowerCase();
             string displayPath = modulePath is null ? "" : modulePath + "/";
 
-            // dashSingle.{type}.ts
-            filePath = Path.Combine(outputPath, $"{dashSingle}.{dashType}.ts");
+            // dashName.{type}.ts
+            filePath = Path.Combine(outputPath, $"{dashName}.{dashType}.ts");
             switch (type.ToLower())
             {
                 case "api":
                     content = (await Templates.GetApiCode())
-                        .Replace("#PascalSingle#", pascalSingle)
+                        .Replace("#PascalName#", pascalName)
                         .Replace("#PascalType#", pascalType)
-                        .Replace("#camelSingle#", camelSingle);
+                        .Replace("#camelName#", camelName);
                     break;
                 case "navigator":
                     content = (await Templates.GetNavigatorCode())
-                        .Replace("#PascalSingle#", pascalSingle)
-                        .Replace("#dash-single#", dashSingle);
+                        .Replace("#PascalName#", pascalName)
+                        .Replace("#dash-name#", dashName);
                     break;
                 default:
                     content = (await Templates.GetServiceCode())
-                        .Replace("#PascalSingle#", pascalSingle)
+                        .Replace("#PascalName#", pascalName)
                         .Replace("#PascalType#", pascalType);
                     break;
             }
             await Helper.WriteFile(filePath, content);
-            Console.WriteLine($"{displayPath}{dashSingle}.{dashType}.ts");
+            Console.WriteLine($"{displayPath}{dashName}.{dashType}.ts");
 
-            // dashSingle.{type}.spec.ts
-            filePath = Path.Combine(outputPath, $"{dashSingle}.{dashType}.spec.ts");
+            // dashName.{type}.spec.ts
+            filePath = Path.Combine(outputPath, $"{dashName}.{dashType}.spec.ts");
             switch (type.ToLower())
             {
                 case "api":
                     content = (await Templates.GetApiTest())
-                        .Replace("#PascalSingle#", pascalSingle)
-                        .Replace("#dash-single#", dashSingle);
+                        .Replace("#PascalName#", pascalName)
+                        .Replace("#dash-name#", dashName);
                     break;
                 case "navigator":
                     content = (await Templates.GetNavigatorTest())
-                        .Replace("#PascalSingle#", pascalSingle)
-                        .Replace("#dash-single#", dashSingle)
-                        .Replace("#camelSingle#", camelSingle);
+                        .Replace("#PascalName#", pascalName)
+                        .Replace("#dash-name#", dashName)
+                        .Replace("#camelName#", camelName);
                     break;
                 default:
                     content = (await Templates.GetServiceTest())
-                        .Replace("#dash-single#", dashSingle)
-                        .Replace("#PascalSingle#", pascalSingle)
+                        .Replace("#dash-name#", dashName)
+                        .Replace("#PascalName#", pascalName)
                         .Replace("#dash-type#", dashType)
                         .Replace("#PascalType#", pascalType)
                         .Replace("#camelType#", camelType);
                     break;
             }
             await Helper.WriteFile(filePath, content);
-            Console.WriteLine($"{displayPath}{dashSingle}.{dashType}.spec.ts");
+            Console.WriteLine($"{displayPath}{dashName}.{dashType}.spec.ts");
         }
     }
 }

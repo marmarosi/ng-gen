@@ -67,7 +67,7 @@ namespace ng_gen {
         ///
         ////* locally accessible feature module code, always use relative path */
         ///
-        ///export const enum #PascalSingle#Action {
+        ///export const enum #PascalIndex#Action {
         ///  view
         ///}.
         /// </summary>
@@ -131,12 +131,12 @@ namespace ng_gen {
         ////* locally accessible feature module code, always use relative path */
         ///
         ///@Component({
-        ///  selector: &apos;#prefix#-#dash-single#&apos;,
-        ///  templateUrl: &apos;./#dash-single#.#dash-type#.html&apos;,
-        ///  styleUrl: &apos;./#dash-single#.#dash-type#.scss&apos;,
+        ///  selector: &apos;#prefix#-#dash-name#&apos;,
+        ///  templateUrl: &apos;./#dash-name#.#dash-type#.html&apos;,
+        ///  styleUrl: &apos;./#dash-name#.#dash-type#.scss&apos;,
         ///  changeDetection: ChangeDetectionStrategy.OnPush
         ///})
-        ///export class #PascalSingle##PascalType# {
+        ///export class #PascalName##PascalType# {
         ///
         ///}.
         /// </summary>
@@ -168,14 +168,14 @@ namespace ng_gen {
         ////* globally accessible app code in every feature module */
         ///
         ////* locally accessible feature module code, always use relative path */
-        ///import { #PascalSingle##PascalType# } from &apos;./#dash-single#.#dash-type#&apos;;
+        ///import { #PascalName##PascalType# } from &apos;./#dash-name#.#dash-type#&apos;;
         ///
-        ///describe(&apos;#PascalSingle##PascalType#&apos;, () =&gt; {
-        ///  let #camelType#: #PascalSingle##PascalType#;
-        ///  let fixture: #PascalType#Fixture&lt;#PascalSingle##PascalType#&gt;;
+        ///describe(&apos;#PascalName##PascalType#&apos;, () =&gt; {
+        ///  let #camelType#: #PascalName##PascalType#;
+        ///  let fixture: #PascalType#Fixture&lt;#PascalName##PascalType#&gt;;
         ///
         ///  beforeEach(async () =&gt; {
-        ///    await Tes [rest of string was truncated]&quot;;.
+        ///    await TestBed.confi [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string ComponentTest {
             get {
@@ -188,14 +188,14 @@ namespace ng_gen {
         ///# Target translation (.json) file:
         ///# [folder/]file.node[.node[.node]...]
         ///#
-        ///&gt; #camelSingle#.#camelSingle#
+        ///&gt; #camelName#.#camelName#
         ///#
         ///# Text definition:
         ///# [node.[node.]...]keyword: text
         ///#
         ///
-        ///title: #PascalPlural#
-        ///description: #dash-plural# component works!.
+        ///title: #PascalName#
+        ///description: #dash-name# component works!.
         /// </summary>
         internal static string ComponentText {
             get {
@@ -204,7 +204,7 @@ namespace ng_gen {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;ng-container *translate=&quot;let t; node: &apos;#camelSingle#.#camelSingle#&apos;&quot;&gt;
+        ///   Looks up a localized string similar to &lt;ng-container *translate=&quot;let t; node: &apos;#camelName#.#camelName#&apos;&quot;&gt;
         ///
         ///    &lt;h1&gt;{{ t( &apos;title&apos; ) }}&lt;/h1&gt;
         ///
@@ -227,12 +227,12 @@ namespace ng_gen {
         ////* globally accessible app code in every feature module */
         ///
         ////* locally accessible feature module code, always use relative path */
-        ///import { #PascalSingle#Data } from &apos;../../models&apos;;
+        ///import { #PascalName#Data } from &apos;../../models&apos;;
         ///
         ///@Component({
-        ///  templateUrl: &apos;./#dash-single#.dialog.html&apos;,
-        ///  styleUrl: &apos;./#dash-single#.dialog.scss&apos;,
-        ///  changeDetectio [rest of string was truncated]&quot;;.
+        ///  templateUrl: &apos;./#dash-name#.dialog.html&apos;,
+        ///  styleUrl: &apos;./#dash-name#.dialog.scss&apos;,
+        ///  changeDetection: Cha [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string DialogCode {
             get {
@@ -247,7 +247,7 @@ namespace ng_gen {
         ///
         ////* locally accessible feature module code, always use relative path */
         ///
-        ///export interface #PascalSingle#Data {
+        ///export interface #PascalIndex#Data {
         ///
         ///  name: string;
         ///}.
@@ -280,15 +280,15 @@ namespace ng_gen {
         ////* globally accessible app code in every feature module */
         ///
         ////* locally accessible feature module code, always use relative path */
-        ///import { #PascalSingle#Dialog } from &apos;./#dash-single#.dialog&apos;;
+        ///import { #PascalName#Dialog } from &apos;./#dash-name#.dialog&apos;;
         ///
-        ///describe(&apos;#PascalSingle#Dialog&apos;, () =&gt; {
-        ///  let component: #PascalSingle#Dialog;
-        ///  let fixture: ComponentFixture&lt;#PascalSingle#Dialog&gt;;
+        ///describe(&apos;#PascalName#Dialog&apos;, () =&gt; {
+        ///  let component: #PascalName#Dialog;
+        ///  let fixture: ComponentFixture&lt;#PascalName#Dialog&gt;;
         ///
         ///  beforeEach(async () =&gt; {
         ///    await TestBed.configureTestingModule({
-        ///    [rest of string was truncated]&quot;;.
+        ///      declara [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string DialogTest {
             get {
@@ -301,7 +301,7 @@ namespace ng_gen {
         ///# Target translation (.json) file:
         ///# [folder/]file.node[.node[.node]...]
         ///#
-        ///&gt; #camelSingle#.#camelSingle#
+        ///&gt; #camelName#.#camelName#
         ///#
         ///# Text definition:
         ///# [node.[node.]...]keyword: text
@@ -319,7 +319,7 @@ namespace ng_gen {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;ng-container *translate=&quot;let t; node: &apos;#camelSingle#.#camelSingle#&apos;&quot;&gt;
+        ///   Looks up a localized string similar to &lt;ng-container *translate=&quot;let t; node: &apos;#camelName#.#camelName#&apos;&quot;&gt;
         ///
         ///    &lt;h2 mat-dialog-title&gt;{{ t( &apos;title&apos; ) }}&lt;/h2&gt;
         ///
@@ -359,9 +359,9 @@ namespace ng_gen {
         ///
         ////* locally accessible feature module code, always use relative path */
         ///
-        ///const msgRoot = &apos;#camelPlural#.#camelSingle#.&apos;;
+        ///const msgRoot = &apos;#camelPlural#.#camelIndex#.&apos;;
         ///
-        ///export class #PascalSingle# {
+        ///export class #PascalIndex# {
         ///
         ///  public modelId?: string;
         ///
@@ -369,7 +369,7 @@ namespace ng_gen {
         ///  @maxLength( { value: 100, message: msgRoot + &apos;name.maxLength&apos; } )
         ///  public name: string = &apos;&apos;;
         ///
-        /// [rest of string was truncated]&quot;;.
+        ///   [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Model {
             get {
@@ -406,8 +406,8 @@ namespace ng_gen {
         
         /// <summary>
         ///   Looks up a localized string similar to export * from &apos;./actions&apos;;
-        ///export { #PascalSingle#Data } from &apos;./#dash-single#.data&apos;;
-        ///export { #PascalSingle# } from &apos;./#dash-single#.model&apos;;.
+        ///export { #PascalIndex#Data } from &apos;./#dash-index#.data&apos;;
+        ///export { #PascalIndex# } from &apos;./#dash-index#.model&apos;;.
         /// </summary>
         internal static string ModelIndex {
             get {
@@ -557,11 +557,11 @@ namespace ng_gen {
         ////* locally accessible feature module code, always use relative path */
         ///
         ///@Component({
-        ///  templateUrl: &apos;./#dash-single#.page.html&apos;,
-        ///  styleUrl: &apos;./#dash-single#.page.scss&apos;,
+        ///  templateUrl: &apos;./#dash-name#.page.html&apos;,
+        ///  styleUrl: &apos;./#dash-name#.page.scss&apos;,
         ///  changeDetection: ChangeDetectionStrategy.OnPush
         ///})
-        ///export class #PascalSingle#Page {
+        ///export class #PascalName#Page {
         ///
         ///}.
         /// </summary>
@@ -593,15 +593,15 @@ namespace ng_gen {
         ////* globally accessible app code in every feature module */
         ///
         ////* locally accessible feature module code, always use relative path */
-        ///import { #PascalSingle#Page } from &apos;./#dash-single#.page&apos;;
+        ///import { #PascalName#Page } from &apos;./#dash-name#.page&apos;;
         ///
-        ///describe(&apos;#PascalSingle#Page&apos;, () =&gt; {
-        ///  let component: #PascalSingle#Page;
-        ///  let fixture: ComponentFixture&lt;#PascalSingle#Page&gt;;
+        ///describe(&apos;#PascalName#Page&apos;, () =&gt; {
+        ///  let component: #PascalName#Page;
+        ///  let fixture: ComponentFixture&lt;#PascalName#Page&gt;;
         ///
         ///  beforeEach(async () =&gt; {
         ///    await TestBed.configureTestingModule({
-        ///      declara [rest of string was truncated]&quot;;.
+        ///      declarations: [#P [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string PageTest {
             get {
@@ -614,14 +614,14 @@ namespace ng_gen {
         ///# Target translation (.json) file:
         ///# [folder/]file.node[.node[.node]...]
         ///#
-        ///&gt; #camelSingle#.#camelSingle#
+        ///&gt; #camelName#.#camelName#
         ///#
         ///# Text definition:
         ///# [node.[node.]...]keyword: text
         ///#
         ///
-        ///title: #PascalPlural#
-        ///description: #dash-plural# page works!.
+        ///title: #PascalName#
+        ///description: #dash-name# page works!.
         /// </summary>
         internal static string PageText {
             get {
@@ -630,7 +630,7 @@ namespace ng_gen {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;ng-container *translate=&quot;let t; node: &apos;#camelSingle#.#camelSingle#&apos;&quot;&gt;
+        ///   Looks up a localized string similar to &lt;ng-container *translate=&quot;let t; node: &apos;#camelName#.#camelName#&apos;&quot;&gt;
         ///
         ///    &lt;h1&gt;{{ t( &apos;title&apos; ) }}&lt;/h1&gt;
         ///

@@ -19,8 +19,9 @@ namespace ng_gen
             string dashSingle = dashPlural.ToSingle();
             string pascalSingle = pascalPlural.ToSingle();
             string camelSingle = pascalSingle.FirstCharToLowerCase();
-            string indexDash = index.ToSingle().ToLower().ToSingle();
-            string indexPascal = indexDash.ToPascalCase();
+            string dashIndex = index.ToLower();
+            string pascalIndex = dashIndex.ToPascalCase();
+            string camelIndex = pascalIndex.FirstCharToLowerCase();
 
             // dashPlural.routes.ts
             filePath = Path.Combine(outputPath, $"{dashPlural}.routes.ts");
@@ -49,8 +50,8 @@ namespace ng_gen
             // components/index.ts
             filePath = Path.Combine(outputPath, $"components/index.ts");
             content = (await Templates.GetComponentIndex())
-                .Replace("#dash-single#", indexDash)
-                .Replace("#PascalSingle#", indexPascal);
+                .Replace("#dash-single#", dashIndex)
+                .Replace("#PascalSingle#", pascalIndex);
             await Helper.WriteFile(filePath, content);
             Console.WriteLine($"{dashPlural}/components/index.ts");
 
@@ -66,8 +67,8 @@ namespace ng_gen
             // dialogs/index.ts
             filePath = Path.Combine(outputPath, $"dialogs/index.ts");
             content = (await Templates.GetDialogIndex())
-                .Replace("#dash-single#", indexDash)
-                .Replace("#PascalSingle#", indexPascal);
+                .Replace("#dash-single#", dashIndex)
+                .Replace("#PascalSingle#", pascalIndex);
             await Helper.WriteFile(filePath, content);
             Console.WriteLine($"{dashPlural}/dialogs/index.ts");
 
@@ -83,33 +84,33 @@ namespace ng_gen
             // models/index.ts
             filePath = Path.Combine(outputPath, $"models/index.ts");
             content = (await Templates.GetModelIndex())
-                .Replace("#PascalSingle#", pascalSingle)
-                .Replace("#dash-single#", dashSingle);
+                .Replace("#PascalIndex#", pascalIndex)
+                .Replace("#dash-index#", dashIndex);
             await Helper.WriteFile(filePath, content);
             Console.WriteLine($"{dashPlural}/models/index.ts");
 
             // models/actions.ts
             filePath = Path.Combine(outputPath, $"models/actions.ts");
             content = (await Templates.GetActions())
-                .Replace("#PascalSingle#", pascalSingle);
+                .Replace("#PascalIndex#", pascalIndex);
             await Helper.WriteFile(filePath, content);
             Console.WriteLine($"{dashPlural}/models/actions.ts");
 
-            // models/dashSingle.data.ts
-            filePath = Path.Combine(outputPath, $"models/{dashSingle}.data.ts");
+            // models/dashIndex.data.ts
+            filePath = Path.Combine(outputPath, $"models/{dashIndex}.data.ts");
             content = (await Templates.GetDialogData())
-                .Replace("#PascalSingle#", pascalSingle);
+                .Replace("#PascalIndex#", pascalIndex);
             await Helper.WriteFile(filePath, content);
-            Console.WriteLine($"{dashPlural}/models/{dashSingle}.data.ts");
+            Console.WriteLine($"{dashPlural}/models/{dashIndex}.data.ts");
 
-            // models/dashSingle.model.ts
-            filePath = Path.Combine(outputPath, $"models/{dashSingle}.model.ts");
+            // models/dashIndex.model.ts
+            filePath = Path.Combine(outputPath, $"models/{dashIndex}.model.ts");
             content = (await Templates.GetModel())
                 .Replace("#camelPlural#", camelPlural)
-                .Replace("#camelSingle#", camelSingle)
-                .Replace("#PascalSingle#", pascalSingle);
+                .Replace("#camelIndex#", camelIndex)
+                .Replace("#PascalIndex#", pascalIndex);
             await Helper.WriteFile(filePath, content);
-            Console.WriteLine($"{dashPlural}/models/{dashSingle}.model.ts");
+            Console.WriteLine($"{dashPlural}/models/{dashIndex}.model.ts");
 
             #endregion
 
@@ -118,8 +119,8 @@ namespace ng_gen
             // pages/index.ts
             filePath = Path.Combine(outputPath, $"pages/index.ts");
             content = (await Templates.GetPageIndex())
-                .Replace("#dash-single#", indexDash)
-                .Replace("#PascalSingle#", indexPascal);
+                .Replace("#dash-single#", dashIndex)
+                .Replace("#PascalSingle#", pascalIndex);
             await Helper.WriteFile(filePath, content);
             Console.WriteLine($"{dashPlural}/pages/index.ts");
 

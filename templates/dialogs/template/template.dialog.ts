@@ -6,16 +6,16 @@ import { Observable } from 'rxjs';
 /* globally accessible app code in every feature module */
 
 /* locally accessible feature module code, always use relative path */
-import { #PascalSingle#Data } from '../../models';
+import { #PascalName#Data } from '../../models';
 
 @Component({
-  templateUrl: './#dash-single#.dialog.html',
-  styleUrl: './#dash-single#.dialog.scss',
+  templateUrl: './#dash-name#.dialog.html',
+  styleUrl: './#dash-name#.dialog.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class #PascalSingle#Dialog {
+export class #PascalName#Dialog {
 
   constructor(
-    @Inject( MAT_DIALOG_DATA ) public readonly data: Observable<#PascalSingle#Data>
+    @Inject( MAT_DIALOG_DATA ) public readonly data: Observable<#PascalName#Data>
   ) { }
 }

@@ -6,11 +6,11 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 /* locally accessible feature module code, always use relative path */
 
 @Component({
-  selector: '#prefix#-#dash-single#',
-  templateUrl: './#dash-single#.#dash-type#.html',
-  styleUrl: './#dash-single#.#dash-type#.scss',
+  selector: '#prefix#-#dash-name#',
+  templateUrl: './#dash-name#.#dash-type#.html',
+  styleUrl: './#dash-name#.#dash-type#.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class #PascalSingle##PascalType# {
+export class #PascalName##PascalType# {
 
 }

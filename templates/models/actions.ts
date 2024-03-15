@@ -4,6 +4,6 @@
 
 /* locally accessible feature module code, always use relative path */
 
-export const enum #PascalSingle#Action {
+export const enum #PascalIndex#Action {
   view
 }

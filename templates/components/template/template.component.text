@@ -2,11 +2,11 @@
 # Target translation (.json) file:
 # [folder/]file.node[.node[.node]...]
 #
-> #camelSingle#.#camelSingle#
+> #camelName#.#camelName#
 #
 # Text definition:
 # [node.[node.]...]keyword: text
 #
 
-title: #PascalPlural#
-description: #dash-plural# component works!
+title: #PascalName#
+description: #dash-name# component works!

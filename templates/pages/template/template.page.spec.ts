@@ -4,19 +4,19 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 /* globally accessible app code in every feature module */
 
 /* locally accessible feature module code, always use relative path */
-import { #PascalSingle#Page } from './#dash-single#.page';
+import { #PascalName#Page } from './#dash-name#.page';
 
-describe('#PascalSingle#Page', () => {
-  let component: #PascalSingle#Page;
-  let fixture: ComponentFixture<#PascalSingle#Page>;
+describe('#PascalName#Page', () => {
+  let component: #PascalName#Page;
+  let fixture: ComponentFixture<#PascalName#Page>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [#PascalSingle#Page]
+      declarations: [#PascalName#Page]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(#PascalSingle#Page);
+    fixture = TestBed.createComponent(#PascalName#Page);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

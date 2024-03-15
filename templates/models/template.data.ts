@@ -4,7 +4,7 @@
 
 /* locally accessible feature module code, always use relative path */
 
-export interface #PascalSingle#Data {
+export interface #PascalIndex#Data {
 
   name: string;
 }

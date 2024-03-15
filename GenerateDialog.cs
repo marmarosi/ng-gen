@@ -19,54 +19,51 @@ namespace ng_gen
             )
         {
             Program.ReadSettings(config);
-            string outputPath = Helper.GetOutputPath(dirPath, name);
             string filePath, content;
-            string dashPlural = name.ToLower();
-            string pascalPlural = dashPlural.ToPascalCase();
-            string camelPlural = pascalPlural.FirstCharToLowerCase();
-            string dashSingle = dashPlural.ToSingle();
-            string pascalSingle = pascalPlural.ToSingle();
-            string camelSingle = pascalSingle.FirstCharToLowerCase();
-            string displayPath = modulePath ?? dashSingle;
+            string dashName = name.ToLower();
+            string pascalName = dashName.ToPascalCase();
+            string camelName = pascalName.FirstCharToLowerCase();
+            string displayPath = modulePath ?? dashName;
 
             // subdirectory
+            string outputPath = Helper.GetOutputPath(dirPath, dashName);
             Directory.CreateDirectory(outputPath);
 
-            // dashSingle/dashSingle.dialog.ts
-            filePath = Path.Combine(outputPath, $"{dashSingle}.dialog.ts");
+            // dashName/dashName.dialog.ts
+            filePath = Path.Combine(outputPath, $"{dashName}.dialog.ts");
             content = (await Templates.GetDialogCode())
-                .Replace("#dash-single#", dashSingle)
-                .Replace("#PascalSingle#", pascalSingle);
+                .Replace("#dash-name#", dashName)
+                .Replace("#PascalName#", pascalName);
             await Helper.WriteFile(filePath, content);
-            Console.WriteLine($"{displayPath}/{dashSingle}.dialog.ts");
+            Console.WriteLine($"{displayPath}/{dashName}.dialog.ts");
 
-            // dashSingle/dashSingle.dialog.spec.ts
-            filePath = Path.Combine(outputPath, $"{dashSingle}.dialog.spec.ts");
+            // dashName/dashName.dialog.spec.ts
+            filePath = Path.Combine(outputPath, $"{dashName}.dialog.spec.ts");
             content = (await Templates.GetDialogTest())
-                .Replace("#dash-single#", dashSingle)
-                .Replace("#PascalSingle#", pascalSingle);
+                .Replace("#dash-name#", dashName)
+                .Replace("#PascalName#", pascalName);
             await Helper.WriteFile(filePath, content);
-            Console.WriteLine($"{displayPath}/{dashSingle}.dialog.spec.ts");
+            Console.WriteLine($"{displayPath}/{dashName}.dialog.spec.ts");
 
-            // dashSingle/dashSingle.dialog.scss
-            filePath = Path.Combine(outputPath, $"{dashSingle}.dialog.scss");
+            // dashName/dashName.dialog.scss
+            filePath = Path.Combine(outputPath, $"{dashName}.dialog.scss");
             content = "";
             await Helper.WriteFile(filePath, content);
-            Console.WriteLine($"{displayPath}/{dashSingle}.dialog.scss");
+            Console.WriteLine($"{displayPath}/{dashName}.dialog.scss");
 
-            // dashSingle/dashSingle.dialog.html
-            filePath = Path.Combine(outputPath, $"{dashSingle}.dialog.html");
+            // dashName/dashName.dialog.html
+            filePath = Path.Combine(outputPath, $"{dashName}.dialog.html");
             content = (await Templates.GetDialogView())
-                .Replace("#dash-single#", dashSingle);
+                .Replace("#dash-name#", dashName);
             await Helper.WriteFile(filePath, content);
-            Console.WriteLine($"{displayPath}/{dashSingle}.dialog.html");
+            Console.WriteLine($"{displayPath}/{dashName}.dialog.html");
 
-            // dashSingle/dashSingle.dialog.text
-            filePath = Path.Combine(outputPath, $"{dashSingle}.dialog.text");
+            // dashName/dashName.dialog.text
+            filePath = Path.Combine(outputPath, $"{dashName}.dialog.text");
             content = (await Templates.GetDialogText())
-                .Replace("#camelSingle#", camelSingle);
+                .Replace("#camelName#", camelName);
             await Helper.WriteFile(filePath, content);
-            Console.WriteLine($"{displayPath}/{dashSingle}.dialog.text");
+            Console.WriteLine($"{displayPath}/{dashName}.dialog.text");
         }
     }
 }

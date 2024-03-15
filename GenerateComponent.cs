@@ -23,63 +23,62 @@ namespace ng_gen
             )
         {
             Program.ReadSettings(config);
-            string outputPath = Helper.GetOutputPath(dirPath, name);
             string filePath, content;
-            string dashPlural = name.ToLower();
-            string pascalPlural = dashPlural.ToPascalCase();
-            string camelPlural = pascalPlural.FirstCharToLowerCase();
-            string dashSingle = dashPlural.ToSingle();
-            string pascalSingle = pascalPlural.ToSingle();
-            string camelSingle = pascalSingle.FirstCharToLowerCase();
+            string dashName = name.ToLower();
+            string pascalName = dashName.ToPascalCase();
+            string camelName = pascalName.FirstCharToLowerCase();
             string dashType = type;
             string pascalType = type.ToPascalCase();
             string camelType = pascalType.FirstCharToLowerCase();
-            string displayPath = modulePath ?? dashSingle;
+            string displayPath = modulePath ?? dashName;
 
             // subdirectory
+            string outputPath = Helper.GetOutputPath(dirPath, dashName);
             Directory.CreateDirectory(outputPath);
 
-            // dashSingle/dashSingle.{dashType}.ts
-            filePath = Path.Combine(outputPath, $"{dashSingle}.{dashType}.ts");
+            // dashName/dashName.{dashType}.ts
+            filePath = Path.Combine(outputPath, $"{dashName}.{dashType}.ts");
             content = (await Templates.GetComponentCode())
-                .Replace("#dash-single#", dashSingle)
-                .Replace("#PascalSingle#", pascalSingle)
+                .Replace("#dash-name#", dashName)
+                .Replace("#PascalName#", pascalName)
                 .Replace("#dash-type#", dashType)
                 .Replace("#PascalType#", pascalType)
                 .Replace("#prefix#", prefix);
             await Helper.WriteFile(filePath, content);
-            Console.WriteLine($"{displayPath}/{dashSingle}.{dashType}.ts");
+            Console.WriteLine($"{displayPath}/{dashName}.{dashType}.ts");
 
-            // dashSingle/dashSingle.{dashType}.spec.ts
-            filePath = Path.Combine(outputPath, $"{dashSingle}.{dashType}.spec.ts");
+            // dashName/dashName.{dashType}.spec.ts
+            filePath = Path.Combine(outputPath, $"{dashName}.{dashType}.spec.ts");
             content = (await Templates.GetComponentTest())
-                .Replace("#dash-single#", dashSingle)
-                .Replace("#PascalSingle#", pascalSingle)
+                .Replace("#dash-name#", dashName)
+                .Replace("#PascalName#", pascalName)
                 .Replace("#dash-type#", dashType)
                 .Replace("#PascalType#", pascalType)
                 .Replace("#camelType#", camelType);
             await Helper.WriteFile(filePath, content);
-            Console.WriteLine($"{displayPath}/{dashSingle}.{dashType}.spec.ts");
+            Console.WriteLine($"{displayPath}/{dashName}.{dashType}.spec.ts");
 
-            // dashSingle/dashSingle.{dashType}.scss
-            filePath = Path.Combine(outputPath, $"{dashSingle}.{dashType}.scss");
+            // dashName/dashName.{dashType}.scss
+            filePath = Path.Combine(outputPath, $"{dashName}.{dashType}.scss");
             content = "";
             await Helper.WriteFile(filePath, content);
-            Console.WriteLine($"{displayPath}/{dashSingle}.{dashType}.scss");
+            Console.WriteLine($"{displayPath}/{dashName}.{dashType}.scss");
 
-            // dashSingle/dashSingle.{dashType}.html
-            filePath = Path.Combine(outputPath, $"{dashSingle}.{dashType}.html");
+            // dashName/dashName.{dashType}.html
+            filePath = Path.Combine(outputPath, $"{dashName}.{dashType}.html");
             content = (await Templates.GetComponentView())
-                .Replace("#dash-single#", dashSingle);
+                .Replace("#dash-name#", dashName);
             await Helper.WriteFile(filePath, content);
-            Console.WriteLine($"{displayPath}/{dashSingle}.{dashType}.html");
+            Console.WriteLine($"{displayPath}/{dashName}.{dashType}.html");
 
-            // dashSingle/dashSingle.{dashType}.text
-            filePath = Path.Combine(outputPath, $"{dashSingle}.{dashType}.text");
+            // dashName/dashName.{dashType}.text
+            filePath = Path.Combine(outputPath, $"{dashName}.{dashType}.text");
             content = (await Templates.GetComponentText())
-                .Replace("#camelSingle#", camelSingle);
+                .Replace("#camelName#", camelName)
+                .Replace("#PascalName#", pascalName)
+                .Replace("#dash-name#", dashName);
             await Helper.WriteFile(filePath, content);
-            Console.WriteLine($"{displayPath}/{dashSingle}.{dashType}.text");
+            Console.WriteLine($"{displayPath}/{dashName}.{dashType}.text");
         }
     }
 }
