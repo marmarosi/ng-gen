@@ -1,9 +1,14 @@
 #
-# file.node[.node[.node]...]
+# Target translation (.json) file:
+# [folder/]file.node[.node[.node]...]
 #
-> _void_.#camelSingle#
+> #camelSingle#.#camelSingle#
 #
-# [folder/][node.[node.]...]keyword: text
+# Text definition:
+# [node.[node.]...]keyword: text
 #
-title: ?
-description: ?
+
+title: Delete all elements?
+description: This will delete all elements that are currently on this page and cannot be undone.
+cancel: Cancel
+delete: Delete

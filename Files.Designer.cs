@@ -185,14 +185,17 @@ namespace ng_gen {
         
         /// <summary>
         ///   Looks up a localized string similar to #
-        ///# file.node[.node[.node]...]
+        ///# Target translation (.json) file:
+        ///# [folder/]file.node[.node[.node]...]
         ///#
-        ///&gt; _void_.#camelSingle#
+        ///&gt; #camelSingle#.#camelSingle#
         ///#
-        ///# [folder/][node.[node.]...]keyword: text
+        ///# Text definition:
+        ///# [node.[node.]...]keyword: text
         ///#
-        ///title: ?
-        ///description: ?.
+        ///
+        ///title: #PascalPlural#
+        ///description: #dash-plural# component works!.
         /// </summary>
         internal static string ComponentText {
             get {
@@ -201,7 +204,13 @@ namespace ng_gen {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;#dash-single# component works!&lt;/p&gt;.
+        ///   Looks up a localized string similar to &lt;ng-container *translate=&quot;let t; node: &apos;#camelSingle#.#camelSingle#&apos;&quot;&gt;
+        ///
+        ///    &lt;h1&gt;{{ t( &apos;title&apos; ) }}&lt;/h1&gt;
+        ///
+        ///    &lt;p&gt;{{ t( &apos;description&apos; ) }}&lt;/p&gt;
+        ///
+        ///&lt;/ng-container&gt;.
         /// </summary>
         internal static string ComponentView {
             get {
@@ -289,14 +298,19 @@ namespace ng_gen {
         
         /// <summary>
         ///   Looks up a localized string similar to #
-        ///# file.node[.node[.node]...]
+        ///# Target translation (.json) file:
+        ///# [folder/]file.node[.node[.node]...]
         ///#
-        ///&gt; _void_.#camelSingle#
+        ///&gt; #camelSingle#.#camelSingle#
         ///#
-        ///# [folder/][node.[node.]...]keyword: text
+        ///# Text definition:
+        ///# [node.[node.]...]keyword: text
         ///#
-        ///title: ?
-        ///description: ?.
+        ///
+        ///title: Delete all elements?
+        ///description: This will delete all elements that are currently on this page and cannot be undone.
+        ///cancel: Cancel
+        ///delete: Delete.
         /// </summary>
         internal static string DialogText {
             get {
@@ -305,14 +319,20 @@ namespace ng_gen {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;h2 mat-dialog-title&gt;Delete all elements?&lt;/h2&gt;
-        ///&lt;mat-dialog-content&gt;
-        ///  This will delete all elements that are currently on this page and cannot be undone.
-        ///&lt;/mat-dialog-content&gt;
-        ///&lt;mat-dialog-actions&gt;
-        ///  &lt;button mat-button mat-dialog-close&gt;Cancel&lt;/button&gt;
-        ///  &lt;button mat-button [mat-dialog-close]=&quot;true&quot;&gt;Delete&lt;/button&gt;
-        ///&lt;/mat-dialog-actions&gt;.
+        ///   Looks up a localized string similar to &lt;ng-container *translate=&quot;let t; node: &apos;#camelSingle#.#camelSingle#&apos;&quot;&gt;
+        ///
+        ///    &lt;h2 mat-dialog-title&gt;{{ t( &apos;title&apos; ) }}&lt;/h2&gt;
+        ///
+        ///    &lt;mat-dialog-content&gt;
+        ///      {{ t( &apos;description&apos; ) }}
+        ///    &lt;/mat-dialog-content&gt;
+        ///
+        ///    &lt;mat-dialog-actions&gt;
+        ///      &lt;button mat-button mat-dialog-close&gt;{{ t( &apos;cancel&apos; ) }}&lt;/button&gt;
+        ///      &lt;button mat-button [mat-dialog-close]=&quot;true&quot;&gt;{{ t( &apos;delete&apos; ) }}&lt;/button&gt;
+        ///    &lt;/mat-dialog-actions&gt;
+        ///
+        ///&lt;/ng-container&gt;.
         /// </summary>
         internal static string DialogView {
             get {
@@ -347,9 +367,9 @@ namespace ng_gen {
         ///
         ///  @required( { message: msgRoot + &apos;name.required&apos; } )
         ///  @maxLength( { value: 100, message: msgRoot + &apos;name.maxLength&apos; } )
-        ///  public name: string;
+        ///  public name: string = &apos;&apos;;
         ///
-        ///  pub [rest of string was truncated]&quot;;.
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Model {
             get {
@@ -386,7 +406,7 @@ namespace ng_gen {
         
         /// <summary>
         ///   Looks up a localized string similar to export * from &apos;./actions&apos;;
-        ///export { DialogData } from &apos;./dialog.data&apos;;
+        ///export { #PascalSingle#Data } from &apos;./#dash-single#.data&apos;;
         ///export { #PascalSingle# } from &apos;./#dash-single#.model&apos;;.
         /// </summary>
         internal static string ModelIndex {
@@ -591,14 +611,17 @@ namespace ng_gen {
         
         /// <summary>
         ///   Looks up a localized string similar to #
-        ///# file.node[.node[.node]...]
+        ///# Target translation (.json) file:
+        ///# [folder/]file.node[.node[.node]...]
         ///#
-        ///&gt; _void_.#camelSingle#
+        ///&gt; #camelSingle#.#camelSingle#
         ///#
-        ///# [folder/][node.[node.]...]keyword: text
+        ///# Text definition:
+        ///# [node.[node.]...]keyword: text
         ///#
-        ///title: ?
-        ///description: ?.
+        ///
+        ///title: #PascalPlural#
+        ///description: #dash-plural# page works!.
         /// </summary>
         internal static string PageText {
             get {
@@ -607,7 +630,13 @@ namespace ng_gen {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;#dash-single# page works!&lt;/p&gt;.
+        ///   Looks up a localized string similar to &lt;ng-container *translate=&quot;let t; node: &apos;#camelSingle#.#camelSingle#&apos;&quot;&gt;
+        ///
+        ///    &lt;h1&gt;{{ t( &apos;title&apos; ) }}&lt;/h1&gt;
+        ///
+        ///    &lt;p&gt;{{ t( &apos;description&apos; ) }}&lt;/p&gt;
+        ///
+        ///&lt;/ng-container&gt;.
         /// </summary>
         internal static string PageView {
             get {

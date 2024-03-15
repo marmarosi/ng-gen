@@ -1,9 +1,12 @@
 #
-# file.node[.node[.node]...]
+# Target translation (.json) file:
+# [folder/]file.node[.node[.node]...]
 #
-> _void_.#camelSingle#
+> #camelSingle#.#camelSingle#
 #
-# [folder/][node.[node.]...]keyword: text
+# Text definition:
+# [node.[node.]...]keyword: text
 #
-title: ?
-description: ?
+
+title: #PascalPlural#
+description: #dash-plural# page works!

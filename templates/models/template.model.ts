@@ -13,11 +13,11 @@ export class #PascalSingle# {
 
   @required( { message: msgRoot + 'name.required' } )
   @maxLength( { value: 100, message: msgRoot + 'name.maxLength' } )
-  public name: string;
+  public name: string = '';
 
   public timestamp?: Date;
 
-  constructor( data ) {
+  constructor( data: any ) {
     Object.assign( this, data );
   }
 }

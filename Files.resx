@@ -281,17 +281,26 @@ describe('#PascalSingle##PascalType#', () =&gt; {
   </data>
   <data name="ComponentText" xml:space="preserve">
     <value>#
-# file.node[.node[.node]...]
+# Target translation (.json) file:
+# [folder/]file.node[.node[.node]...]
 #
-&gt; _void_.#camelSingle#
+&gt; #camelSingle#.#camelSingle#
 #
-# [folder/][node.[node.]...]keyword: text
+# Text definition:
+# [node.[node.]...]keyword: text
 #
-title: ?
-description: ?</value>
+
+title: #PascalPlural#
+description: #dash-plural# component works!</value>
   </data>
   <data name="ComponentView" xml:space="preserve">
-    <value>&lt;p&gt;#dash-single# component works!&lt;/p&gt;</value>
+    <value>&lt;ng-container *translate="let t; node: '#camelSingle#.#camelSingle#'"&gt;
+
+    &lt;h1&gt;{{ t( 'title' ) }}&lt;/h1&gt;
+
+    &lt;p&gt;{{ t( 'description' ) }}&lt;/p&gt;
+
+&lt;/ng-container&gt;</value>
   </data>
   <data name="DialogCode" xml:space="preserve">
     <value>/* 3rd party libraries */
@@ -370,24 +379,35 @@ describe('#PascalSingle#Dialog', () =&gt; {
   </data>
   <data name="DialogText" xml:space="preserve">
     <value>#
-# file.node[.node[.node]...]
+# Target translation (.json) file:
+# [folder/]file.node[.node[.node]...]
 #
-&gt; _void_.#camelSingle#
+&gt; #camelSingle#.#camelSingle#
 #
-# [folder/][node.[node.]...]keyword: text
+# Text definition:
+# [node.[node.]...]keyword: text
 #
-title: ?
-description: ?</value>
+
+title: Delete all elements?
+description: This will delete all elements that are currently on this page and cannot be undone.
+cancel: Cancel
+delete: Delete</value>
   </data>
   <data name="DialogView" xml:space="preserve">
-    <value>&lt;h2 mat-dialog-title&gt;Delete all elements?&lt;/h2&gt;
-&lt;mat-dialog-content&gt;
-  This will delete all elements that are currently on this page and cannot be undone.
-&lt;/mat-dialog-content&gt;
-&lt;mat-dialog-actions&gt;
-  &lt;button mat-button mat-dialog-close&gt;Cancel&lt;/button&gt;
-  &lt;button mat-button [mat-dialog-close]="true"&gt;Delete&lt;/button&gt;
-&lt;/mat-dialog-actions&gt;</value>
+    <value>&lt;ng-container *translate="let t; node: '#camelSingle#.#camelSingle#'"&gt;
+
+    &lt;h2 mat-dialog-title&gt;{{ t( 'title' ) }}&lt;/h2&gt;
+
+    &lt;mat-dialog-content&gt;
+      {{ t( 'description' ) }}
+    &lt;/mat-dialog-content&gt;
+
+    &lt;mat-dialog-actions&gt;
+      &lt;button mat-button mat-dialog-close&gt;{{ t( 'cancel' ) }}&lt;/button&gt;
+      &lt;button mat-button [mat-dialog-close]="true"&gt;{{ t( 'delete' ) }}&lt;/button&gt;
+    &lt;/mat-dialog-actions&gt;
+
+&lt;/ng-container&gt;</value>
   </data>
   <data name="InterfacesIndex" xml:space="preserve">
     <value>export { #PascalSingle#Dto } from './#dash-single#.dto';
@@ -410,11 +430,11 @@ export class #PascalSingle# {
 
   @required( { message: msgRoot + 'name.required' } )
   @maxLength( { value: 100, message: msgRoot + 'name.maxLength' } )
-  public name: string;
+  public name: string = '';
 
   public timestamp?: Date;
 
-  constructor( data ) {
+  constructor( data: any ) {
     Object.assign( this, data );
   }
 }</value>
@@ -442,7 +462,7 @@ export namespace #PascalSingle#Dto {
   </data>
   <data name="ModelIndex" xml:space="preserve">
     <value>export * from './actions';
-export { DialogData } from './dialog.data';
+export { #PascalSingle#Data } from './#dash-single#.data';
 export { #PascalSingle# } from './#dash-single#.model';</value>
   </data>
   <data name="ModelListItemDto" xml:space="preserve">
@@ -626,17 +646,26 @@ describe('#PascalSingle#Page', () =&gt; {
   </data>
   <data name="PageText" xml:space="preserve">
     <value>#
-# file.node[.node[.node]...]
+# Target translation (.json) file:
+# [folder/]file.node[.node[.node]...]
 #
-&gt; _void_.#camelSingle#
+&gt; #camelSingle#.#camelSingle#
 #
-# [folder/][node.[node.]...]keyword: text
+# Text definition:
+# [node.[node.]...]keyword: text
 #
-title: ?
-description: ?</value>
+
+title: #PascalPlural#
+description: #dash-plural# page works!</value>
   </data>
   <data name="PageView" xml:space="preserve">
-    <value>&lt;p&gt;#dash-single# page works!&lt;/p&gt;</value>
+    <value>&lt;ng-container *translate="let t; node: '#camelSingle#.#camelSingle#'"&gt;
+
+    &lt;h1&gt;{{ t( 'title' ) }}&lt;/h1&gt;
+
+    &lt;p&gt;{{ t( 'description' ) }}&lt;/p&gt;
+
+&lt;/ng-container&gt;</value>
   </data>
   <data name="Routes" xml:space="preserve">
     <value>/* 3rd party libraries */
