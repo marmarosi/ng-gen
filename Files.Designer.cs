@@ -188,7 +188,7 @@ namespace ng_gen {
         ///# Target translation (.json) file:
         ///# [folder/]file.node[.node[.node]...]
         ///#
-        ///&gt; #camelName#.#camelName#
+        ///&gt; #camelXlate#.#camelName#
         ///#
         ///# Text definition:
         ///# [node.[node.]...]keyword: text
@@ -204,7 +204,7 @@ namespace ng_gen {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;ng-container *translate=&quot;let t; node: &apos;#camelName#.#camelName#&apos;&quot;&gt;
+        ///   Looks up a localized string similar to &lt;ng-container *translate=&quot;let t; node: &apos;#camelXlate#.#camelName#&apos;&quot;&gt;
         ///
         ///    &lt;h1&gt;{{ t( &apos;title&apos; ) }}&lt;/h1&gt;
         ///
@@ -301,7 +301,7 @@ namespace ng_gen {
         ///# Target translation (.json) file:
         ///# [folder/]file.node[.node[.node]...]
         ///#
-        ///&gt; #camelName#.#camelName#
+        ///&gt; #camelXlate#.#camelName#
         ///#
         ///# Text definition:
         ///# [node.[node.]...]keyword: text
@@ -319,7 +319,7 @@ namespace ng_gen {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;ng-container *translate=&quot;let t; node: &apos;#camelName#.#camelName#&apos;&quot;&gt;
+        ///   Looks up a localized string similar to &lt;ng-container *translate=&quot;let t; node: &apos;#camelXlate#.#camelName#&apos;&quot;&gt;
         ///
         ///    &lt;h2 mat-dialog-title&gt;{{ t( &apos;title&apos; ) }}&lt;/h2&gt;
         ///
@@ -614,7 +614,7 @@ namespace ng_gen {
         ///# Target translation (.json) file:
         ///# [folder/]file.node[.node[.node]...]
         ///#
-        ///&gt; #camelName#.#camelName#
+        ///&gt; #camelXlate#.#camelName#
         ///#
         ///# Text definition:
         ///# [node.[node.]...]keyword: text
@@ -630,7 +630,7 @@ namespace ng_gen {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;ng-container *translate=&quot;let t; node: &apos;#camelName#.#camelName#&apos;&quot;&gt;
+        ///   Looks up a localized string similar to &lt;ng-container *translate=&quot;let t; node: &apos;#camelXlate#.#camelName#&apos;&quot;&gt;
         ///
         ///    &lt;h1&gt;{{ t( &apos;title&apos; ) }}&lt;/h1&gt;
         ///

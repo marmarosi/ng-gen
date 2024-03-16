@@ -27,7 +27,7 @@ static class Program
             name: "--prefix",
             description: "The HTML prefix of the Angular component.",
             getDefaultValue: () => "app");
-        prefixOption.AddAlias("-x");
+        prefixOption.AddAlias("-p");
 
         var typeOption = new Option<string>(
             name: "--type",
@@ -40,6 +40,17 @@ static class Program
             getDefaultValue: () => "index");
         indexOption.AddAlias("-i");
 
+        var xlateOption = new Option<string>(
+            name: "--translate",
+            description: "The name of the translation (.json) file.");
+        xlateOption.AddAlias("-x");
+        xlateOption.IsRequired = true;
+
+        var xlateOption2 = new Option<string>(
+            name: "--translate",
+            description: "The name of the translation (.json) file.");
+        xlateOption2.AddAlias("-x");
+
         // Define arguments
 
         var nameArgument = new Argument<string>(
@@ -51,52 +62,56 @@ static class Program
         var moduleCommand = new Command("module", "Generates a new module.");
         moduleCommand.AddAlias("m");
         moduleCommand.AddArgument(nameArgument);
+        moduleCommand.AddOption(xlateOption2);
         moduleCommand.AddOption(prefixOption);
         moduleCommand.AddOption(indexOption);
 
-        moduleCommand.SetHandler(async (config, dirPath, name, prefix, index) =>
+        moduleCommand.SetHandler(async (config, dirPath, name, xlate, prefix, index) =>
             {
-                await GenerateModule.Run(config, dirPath, name, prefix, index);
+                await GenerateModule.Run(config, dirPath, name, xlate, prefix, index);
             },
-            configOption, dirPathOption, nameArgument, prefixOption, indexOption);
+            configOption, dirPathOption, nameArgument, xlateOption2, prefixOption, indexOption);
 
         // Define page command
 
         var pageCommand = new Command("page", "Generates a new page.");
         pageCommand.AddAlias("p");
         pageCommand.AddArgument(nameArgument);
+        pageCommand.AddOption(xlateOption);
 
-        pageCommand.SetHandler(async (config, dirPath, name) =>
+        pageCommand.SetHandler(async (config, dirPath, name, xlate) =>
             {
-                await GeneratePage.Run(config, dirPath, name);
+                await GeneratePage.Run(config, dirPath, name, xlate);
             },
-            configOption, dirPathOption, nameArgument);
+            configOption, dirPathOption, nameArgument, xlateOption);
 
         // Define component command
 
         var componentCommand = new Command("component", "Generates a new component.");
         componentCommand.AddAlias("c");
         componentCommand.AddArgument(nameArgument);
+        componentCommand.AddOption(xlateOption);
         componentCommand.AddOption(prefixOption);
         componentCommand.AddOption(typeOption);
 
-        componentCommand.SetHandler(async (config, dirPath, name, prefix, type) =>
+        componentCommand.SetHandler(async (config, dirPath, name, xlate, prefix, type) =>
             {
-                await GenerateComponent.Run(config, dirPath, name, prefix, type);
+                await GenerateComponent.Run(config, dirPath, name, xlate, prefix, type);
             },
-           configOption, dirPathOption, nameArgument, prefixOption, typeOption);
+           configOption, dirPathOption, nameArgument, xlateOption, prefixOption, typeOption);
 
         // Define dialog command
 
         var dialogCommand = new Command("dialog", "Generates a new dialog.");
         dialogCommand.AddAlias("d");
         dialogCommand.AddArgument(nameArgument);
+        dialogCommand.AddOption(xlateOption);
 
-        dialogCommand.SetHandler(async (config, dirPath, name) =>
+        dialogCommand.SetHandler(async (config, dirPath, name, xlate) =>
             {
-                await GenerateDialog.Run(config, dirPath, name);
+                await GenerateDialog.Run(config, dirPath, name, xlate);
             },
-            configOption, dirPathOption, nameArgument);
+            configOption, dirPathOption, nameArgument, xlateOption);
 
         // Define service command
 
@@ -124,6 +139,7 @@ static class Program
         rootCommand.AddGlobalOption(configOption);
         rootCommand.AddGlobalOption(dirPathOption);
 
+        rootCommand.AddOption(xlateOption);
         rootCommand.AddOption(prefixOption);
         rootCommand.AddOption(typeOption);
         rootCommand.AddOption(indexOption);

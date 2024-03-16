@@ -6,17 +6,19 @@ namespace ng_gen
             string config,
             string dirPath,
             string name,
+            string xlate,
             string prefix,
             string type
             )
         {
-            await FromModule(config, dirPath, name, prefix, type ?? "component");
+            await FromModule(config, dirPath, name, xlate, prefix, type ?? "component");
         }
 
         internal static async Task FromModule(
             string config,
             string dirPath,
             string name,
+            string xlate,
             string prefix,
             string type,
             string? modulePath = null
@@ -30,6 +32,7 @@ namespace ng_gen
             string dashType = type;
             string pascalType = type.ToPascalCase();
             string camelType = pascalType.FirstCharToLowerCase();
+            string camelXlate = xlate.ToLower().ToPascalCase('/').FirstCharToLowerCase('/');
             string displayPath = modulePath ?? dashName;
 
             // subdirectory
@@ -67,13 +70,15 @@ namespace ng_gen
             // dashName/dashName.{dashType}.html
             filePath = Path.Combine(outputPath, $"{dashName}.{dashType}.html");
             content = (await Templates.GetComponentView())
-                .Replace("#dash-name#", dashName);
+                .Replace("#camelXlate#", camelXlate)
+                .Replace("#camelName#", camelName);
             await Helper.WriteFile(filePath, content);
             Console.WriteLine($"{displayPath}/{dashName}.{dashType}.html");
 
             // dashName/dashName.{dashType}.text
             filePath = Path.Combine(outputPath, $"{dashName}.{dashType}.text");
             content = (await Templates.GetComponentText())
+                .Replace("#camelXlate#", camelXlate)
                 .Replace("#camelName#", camelName)
                 .Replace("#PascalName#", pascalName)
                 .Replace("#dash-name#", dashName);

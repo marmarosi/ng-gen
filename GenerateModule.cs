@@ -6,6 +6,7 @@ namespace ng_gen
             string config,
             string dirPath,
             string name,
+            string xlate,
             string prefix,
             string index
             )
@@ -22,6 +23,7 @@ namespace ng_gen
             string dashIndex = index.ToLower();
             string pascalIndex = dashIndex.ToPascalCase();
             string camelIndex = pascalIndex.FirstCharToLowerCase();
+            string camelXlate = string.IsNullOrEmpty(xlate) ? name : xlate;
 
             // dashPlural.routes.ts
             filePath = Path.Combine(outputPath, $"{dashPlural}.routes.ts");
@@ -58,7 +60,7 @@ namespace ng_gen
             // components/dashSingle/*
             string componentPath1 = string.Join("/", dashPlural, "components");
             string componentPath2 = Path.Combine(dirPath ?? "", componentPath1);
-            await GenerateComponent.FromModule(config, componentPath2, index, prefix, "component", componentPath1);
+            await GenerateComponent.FromModule(config, componentPath2, index, camelXlate, prefix, "component", componentPath1);
 
             #endregion
 
@@ -75,7 +77,7 @@ namespace ng_gen
             // dialogs/dashSingle/*
             string dialogPath1 = string.Join("/", dashPlural, "dialogs");
             string dialogPath2 = Path.Combine(dirPath ?? "", dialogPath1);
-            await GenerateDialog.FromModule(config, dialogPath2, index, dialogPath1);
+            await GenerateDialog.FromModule(config, dialogPath2, index, camelXlate, dialogPath1);
 
             #endregion
 
@@ -127,7 +129,7 @@ namespace ng_gen
             // pages/dashSingle/*
             string pagePath1 = string.Join("/", dashPlural, "pages");
             string pagePath2 = Path.Combine(dirPath ?? "", pagePath1);
-            await GeneratePage.FromModule(config, pagePath2, index, pagePath1);
+            await GeneratePage.FromModule(config, pagePath2, index, camelXlate, pagePath1);
 
             #endregion
 

@@ -83,13 +83,21 @@ namespace ng_gen
         }
 
         internal static string ToPascalCase(
+            this string input,
+            char separator
+            )
+        {
+            return string.Join(separator, input.Split(separator).Select(x => x.ToPascalCase()));
+        }
+
+        internal static string ToPascalCase(
             this string input
             )
         {
             return string.Join('.', input.Split('.').Select(x => ConvertToPascalCase(x)));
         }
 
-        internal static string ConvertToPascalCase(
+        private static string ConvertToPascalCase(
             string input
             )
         {
@@ -130,7 +138,15 @@ namespace ng_gen
         }
 
         public static string? FirstCharToLowerCase(
-            this string? input
+            this string input,
+            char separator
+            )
+        {
+            return string.Join(separator, input.Split(separator).Select(x => x.FirstCharToLowerCase()));
+        }
+
+        public static string? FirstCharToLowerCase(
+            this string input
             )
         {
             if (char.IsUpper(input[0]))

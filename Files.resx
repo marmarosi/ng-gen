@@ -284,7 +284,7 @@ describe('#PascalName##PascalType#', () =&gt; {
 # Target translation (.json) file:
 # [folder/]file.node[.node[.node]...]
 #
-&gt; #camelName#.#camelName#
+&gt; #camelXlate#.#camelName#
 #
 # Text definition:
 # [node.[node.]...]keyword: text
@@ -294,7 +294,7 @@ title: #PascalName#
 description: #dash-name# component works!</value>
   </data>
   <data name="ComponentView" xml:space="preserve">
-    <value>&lt;ng-container *translate="let t; node: '#camelName#.#camelName#'"&gt;
+    <value>&lt;ng-container *translate="let t; node: '#camelXlate#.#camelName#'"&gt;
 
     &lt;h1&gt;{{ t( 'title' ) }}&lt;/h1&gt;
 
@@ -382,7 +382,7 @@ describe('#PascalName#Dialog', () =&gt; {
 # Target translation (.json) file:
 # [folder/]file.node[.node[.node]...]
 #
-&gt; #camelName#.#camelName#
+&gt; #camelXlate#.#camelName#
 #
 # Text definition:
 # [node.[node.]...]keyword: text
@@ -394,7 +394,7 @@ cancel: Cancel
 delete: Delete</value>
   </data>
   <data name="DialogView" xml:space="preserve">
-    <value>&lt;ng-container *translate="let t; node: '#camelName#.#camelName#'"&gt;
+    <value>&lt;ng-container *translate="let t; node: '#camelXlate#.#camelName#'"&gt;
 
     &lt;h2 mat-dialog-title&gt;{{ t( 'title' ) }}&lt;/h2&gt;
 
@@ -649,7 +649,7 @@ describe('#PascalName#Page', () =&gt; {
 # Target translation (.json) file:
 # [folder/]file.node[.node[.node]...]
 #
-&gt; #camelName#.#camelName#
+&gt; #camelXlate#.#camelName#
 #
 # Text definition:
 # [node.[node.]...]keyword: text
@@ -659,7 +659,7 @@ title: #PascalName#
 description: #dash-name# page works!</value>
   </data>
   <data name="PageView" xml:space="preserve">
-    <value>&lt;ng-container *translate="let t; node: '#camelName#.#camelName#'"&gt;
+    <value>&lt;ng-container *translate="let t; node: '#camelXlate#.#camelName#'"&gt;
 
     &lt;h1&gt;{{ t( 'title' ) }}&lt;/h1&gt;
 
