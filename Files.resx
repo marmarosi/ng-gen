@@ -577,15 +577,15 @@ export class #PascalSingle#Navigator {
 import { #PascalSingle#Navigator } from './#dash-single#.navigator';
 
 describe('#PascalSingle#Navigator', () =&gt; {
-  let #camelSingle#: #PascalSingle#Navigator;
+  let navigator: #PascalSingle#Navigator;
 
   beforeEach(() =&gt; {
     TestBed.configureTestingModule({});
-    #camelSingle# = TestBed.inject(#PascalSingle#Navigator);
+    navigator = TestBed.inject(#PascalSingle#Navigator);
   });
 
   it('should be created', () =&gt; {
-    expect(#camelSingle#).toBeTruthy();
+    expect(navigator).toBeTruthy();
   });
 });</value>
   </data>
@@ -709,7 +709,8 @@ export class #PascalSingle##PascalType# {
   <data name="ServiceIndex" xml:space="preserve">
     <value>export * from './interfaces';
 export { #PascalSingle#Api } from './#dash-single#.api';
-export { #PascalSingle#Navigator } from './#dash-single#.navigator';</value>
+export { #PascalSingle#Navigator } from './#dash-single#.navigator';
+export { #PascalSingle#Service } from './#dash-single#.service';</value>
   </data>
   <data name="ServiceTest" xml:space="preserve">
     <value>/* 3rd party libraries */

@@ -2,7 +2,7 @@
   "profiles": {
     "ng-gen": {
       "commandName": "Project",
-      "commandLineArgs": "m rolling-stones -i dire-straits -x my-app/rolling-stones -c mj-settings"
+      "commandLineArgs": "m zz-top -x zz-top -c mj-settings"
     }
   }
 }

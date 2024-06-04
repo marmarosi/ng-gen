@@ -145,10 +145,12 @@ namespace ng_gen
 
             // services/dashSingle.api.ts
             // services/dashSingle.navigator.ts
+            // services/dashSingle.service.ts
             string servicePath1 = string.Join("/", dashPlural, "services");
             string servicePath2 = Path.Combine(dirPath ?? "", servicePath1);
             await GenerateService.FromModule(config, servicePath2, dashSingle, "api", servicePath1);
             await GenerateService.FromModule(config, servicePath2, dashSingle, "navigator", servicePath1);
+            await GenerateService.FromModule(config, servicePath2, dashSingle, "service", servicePath1);
 
             #endregion
 

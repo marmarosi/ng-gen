@@ -530,15 +530,15 @@ namespace ng_gen {
         ///import { #PascalSingle#Navigator } from &apos;./#dash-single#.navigator&apos;;
         ///
         ///describe(&apos;#PascalSingle#Navigator&apos;, () =&gt; {
-        ///  let #camelSingle#: #PascalSingle#Navigator;
+        ///  let navigator: #PascalSingle#Navigator;
         ///
         ///  beforeEach(() =&gt; {
         ///    TestBed.configureTestingModule({});
-        ///    #camelSingle# = TestBed.inject(#PascalSingle#Navigator);
+        ///    navigator = TestBed.inject(#PascalSingle#Navigator);
         ///  });
         ///
         ///  it(&apos;should be created&apos;, () =&gt; {
-        ///    expect(#camelSingle#).toBeTruthy();
+        ///    expect(navigator).toBeTruthy();
         ///  });
         ///});.
         /// </summary>
@@ -696,7 +696,8 @@ namespace ng_gen {
         /// <summary>
         ///   Looks up a localized string similar to export * from &apos;./interfaces&apos;;
         ///export { #PascalSingle#Api } from &apos;./#dash-single#.api&apos;;
-        ///export { #PascalSingle#Navigator } from &apos;./#dash-single#.navigator&apos;;.
+        ///export { #PascalSingle#Navigator } from &apos;./#dash-single#.navigator&apos;;
+        ///export { #PascalSingle#Service } from &apos;./#dash-single#.service&apos;;.
         /// </summary>
         internal static string ServiceIndex {
             get {
