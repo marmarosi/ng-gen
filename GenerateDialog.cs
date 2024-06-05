@@ -6,10 +6,17 @@ namespace ng_gen
             string config,
             string dirPath,
             string name,
-            string xlate
+            string xlate,
+            string module
             )
         {
-            await FromModule(config, dirPath, name, xlate);
+            string? modulePath = null;
+            if (module != null)
+            {
+                modulePath = string.Join("/", module, "dialogs");
+                dirPath = dirPath == null ? modulePath : string.Join("/", dirPath, modulePath);
+            }
+            await FromModule(config, dirPath, name, xlate, modulePath);
         }
 
         internal static async Task FromModule(

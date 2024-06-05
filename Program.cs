@@ -36,7 +36,7 @@ static class Program
 
         var indexOption = new Option<string>(
             name: "--index",
-            description: "The name of the components in the module.",
+            description: "The name of the indeces in the module.",
             getDefaultValue: () => "index");
         indexOption.AddAlias("-i");
 
@@ -50,6 +50,11 @@ static class Program
             name: "--translate",
             description: "The name of the translation (.json) file.");
         xlateOption2.AddAlias("-x");
+
+        var moduleOption = new Option<string>(
+            name: "--module",
+            description: "The module containing the component/service.");
+        moduleOption.AddAlias("-m");
 
         // Define arguments
 
@@ -78,12 +83,13 @@ static class Program
         pageCommand.AddAlias("p");
         pageCommand.AddArgument(nameArgument);
         pageCommand.AddOption(xlateOption);
+        pageCommand.AddOption(moduleOption);
 
-        pageCommand.SetHandler(async (config, dirPath, name, xlate) =>
+        pageCommand.SetHandler(async (config, dirPath, name, xlate, module) =>
             {
-                await GeneratePage.Run(config, dirPath, name, xlate);
+                await GeneratePage.Run(config, dirPath, name, xlate, module);
             },
-            configOption, dirPathOption, nameArgument, xlateOption);
+            configOption, dirPathOption, nameArgument, xlateOption, moduleOption);
 
         // Define component command
 
@@ -91,14 +97,15 @@ static class Program
         componentCommand.AddAlias("c");
         componentCommand.AddArgument(nameArgument);
         componentCommand.AddOption(xlateOption);
+        componentCommand.AddOption(moduleOption);
         componentCommand.AddOption(prefixOption);
         componentCommand.AddOption(typeOption);
 
-        componentCommand.SetHandler(async (config, dirPath, name, xlate, prefix, type) =>
+        componentCommand.SetHandler(async (config, dirPath, name, xlate, module, prefix, type) =>
             {
-                await GenerateComponent.Run(config, dirPath, name, xlate, prefix, type);
+                await GenerateComponent.Run(config, dirPath, name, xlate, module, prefix, type);
             },
-           configOption, dirPathOption, nameArgument, xlateOption, prefixOption, typeOption);
+           configOption, dirPathOption, nameArgument, xlateOption, moduleOption, prefixOption, typeOption);
 
         // Define dialog command
 
@@ -106,12 +113,13 @@ static class Program
         dialogCommand.AddAlias("d");
         dialogCommand.AddArgument(nameArgument);
         dialogCommand.AddOption(xlateOption);
+        dialogCommand.AddOption(moduleOption);
 
-        dialogCommand.SetHandler(async (config, dirPath, name, xlate) =>
+        dialogCommand.SetHandler(async (config, dirPath, name, xlate, module) =>
             {
-                await GenerateDialog.Run(config, dirPath, name, xlate);
+                await GenerateDialog.Run(config, dirPath, name, xlate, module);
             },
-            configOption, dirPathOption, nameArgument, xlateOption);
+            configOption, dirPathOption, nameArgument, xlateOption, moduleOption);
 
         // Define service command
 
@@ -119,12 +127,13 @@ static class Program
         serviceCommand.AddAlias("s");
         serviceCommand.AddArgument(nameArgument);
         serviceCommand.AddOption(typeOption);
+        serviceCommand.AddOption(moduleOption);
 
-        serviceCommand.SetHandler(async (config, dirPath, name, type) =>
+        serviceCommand.SetHandler(async (config, dirPath, name, type, module) =>
             {
-                await GenerateService.Run(config, dirPath, name, type);
+                await GenerateService.Run(config, dirPath, name, type, module);
             },
-            configOption, dirPathOption, nameArgument, typeOption);
+            configOption, dirPathOption, nameArgument, typeOption, moduleOption);
 
         // Define root command
 
@@ -140,6 +149,7 @@ static class Program
         rootCommand.AddGlobalOption(dirPathOption);
 
         rootCommand.AddOption(xlateOption);
+        rootCommand.AddOption(moduleOption);
         rootCommand.AddOption(prefixOption);
         rootCommand.AddOption(typeOption);
         rootCommand.AddOption(indexOption);

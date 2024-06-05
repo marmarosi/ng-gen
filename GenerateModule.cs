@@ -126,7 +126,7 @@ namespace ng_gen
             await Helper.WriteFile(filePath, content);
             Console.WriteLine($"{dashPlural}/pages/index.ts");
 
-            // pages/dashSingle/*
+            // pages/dashPlural/*
             string pagePath1 = string.Join("/", dashPlural, "pages");
             string pagePath2 = Path.Combine(dirPath ?? "", pagePath1);
             await GeneratePage.FromModule(config, pagePath2, index, camelXlate, pagePath1);
